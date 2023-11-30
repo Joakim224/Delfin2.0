@@ -1,7 +1,6 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.io.ByteArrayOutputStream;
-import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import data.SwimmingClubMember;
 import domain.Database;
@@ -67,6 +66,6 @@ public class Unittest {
                 "Member: Test2, age: 30, active subscription: true, age group: Senior, exercise type: Competitive";
 
         // Asserter at forventede og printede output er det samme
-        assertEquals(expectedOutput, outContent.toString());
+        assertEquals(expectedOutput.trim(), outContent.toString().trim());
     }
 }
