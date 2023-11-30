@@ -3,7 +3,6 @@ package ui;
 import data.SwimmingClubMember;
 import domain.Controller;
 
-import java.awt.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.io.FileNotFoundException;
@@ -114,7 +113,7 @@ public class UserInterface {
 
                 case "2", "two" -> {
                     System.out.println("Printing:");
-                    controller.printMember();
+                    controller.printMembers();
                 }
 
                 case "3", "three" -> {

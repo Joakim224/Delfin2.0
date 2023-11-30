@@ -5,7 +5,6 @@ import data.Filehandler;
 import java.util.ArrayList;
 
 public class Database {
-
     ArrayList<SwimmingClubMember> members = new ArrayList<>();
     Filehandler filehandler = new Filehandler();
 

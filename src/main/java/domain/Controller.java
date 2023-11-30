@@ -2,12 +2,10 @@ package domain;
 
 import data.Filehandler;
 import data.SwimmingClubMember;
-import domain.Database;
 
 import java.io.FileNotFoundException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Optional;
 
 public class Controller {
     Database database = new Database();
@@ -18,7 +16,7 @@ public class Controller {
         database.addMember(name, age, subscriptionActive, ageGroup, excerciseType);
     }
 
-    public void printMember() {
+    public void printMembers() {
         database.printMembers();
     }
 

@@ -1,14 +1,16 @@
-import data.SwimmingClubMember;
-import domain.Database;
-import org.junit.Test;
-
-import java.util.ArrayList;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
+import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import data.SwimmingClubMember;
+import domain.Database;
+import domain.Controller;
+import org.junit.Test;
+import java.util.ArrayList;
 
 public class Unittest {
+
     @Test
     public void testAddMember() {
         Database database = new Database();
@@ -20,7 +22,6 @@ public class Unittest {
     @Test
     public void testCheckSubscription() {
         Database database = new Database();
-
 
         database.addMember("John", 17, true, "Junior", "Regular");
         database.addMember("Jane", 25, true, "Senior", "Regular");
@@ -35,18 +36,37 @@ public class Unittest {
         database.addMember("Jhon", 17, true, "Junior", "regular");
         database.addMember("Jhon", 25, true, "Senior", "regular");
 
-
         // søg af superhelt navn
         ArrayList<SwimmingClubMember> findMemberName = database.findMemberName("Jhon");
 
         assertEquals(2, findMemberName.size()); //
-
 
         // check om search resultat har den superhero man forventer
         assertTrue(findMemberName.stream().anyMatch(member -> member.getName().equals("Jhon")));
         assertTrue(findMemberName.stream().anyMatch(member -> member.getName().equals("Jhon")));
     }
 
+    @Test
+    public void testPrintMembers() {
+        // Laver en ny controller
+        Controller c = new Controller();
 
+        // Tilføjer 2 test members
+        c.addMember("Test1", 15, true, "Junior", "Regular");
+        c.addMember("Test2", 30, true, "Senior", "Competitive");
 
+        // Kalder printMembers metoden og samler det printede information op i printStream
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+        c.printMembers();
+
+        // Definere forventet output fra test members
+        String expectedOutput =
+                "Member: Test1, age: 15, active subscription: true, age group: Junior, exercise type: Regular" +
+                System.lineSeparator() +
+                "Member: Test2, age: 30, active subscription: true, age group: Senior, exercise type: Competitive";
+
+        // Asserter at forventede og printede output er det samme
+        assertEquals(expectedOutput, outContent.toString());
+    }
 }
