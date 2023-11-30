@@ -66,6 +66,6 @@ public class Unittest {
                 "Member: Test2, age: 30, active subscription: true, age group: Senior, exercise type: Competitive";
 
         // Asserter at forventede og printede output er det samme
-        assertEquals(expectedOutput.trim(), outContent.toString().trim());
+        assertEquals(expectedOutput, outContent.toString().trim());
     }
 }

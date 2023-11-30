@@ -67,8 +67,10 @@ public class UserInterface {
                         System.out.print("Status: ");
 
                         subscriptionString = scanner.nextLine().trim().toLowerCase();
-                        if (subscriptionString.equals("active") || subscriptionString.equals("passive")) {
+                        if (subscriptionString.equals("active")) {
                             subscriptionStatus = true;
+                        } else if (subscriptionString.equals("passive")) {
+                            subscriptionStatus = false;
                         } else {
                             System.out.println(color.ANSI_RED + "Invalid input" + color.ANSI_RESET);
                             validSubscriptionStatus = false;

@@ -23,7 +23,7 @@ public class Filehandler {
 
     public SwimmingClubMember parseCSV(String line) {
         try {
-            String[] values = line.split(",");
+            String[] values = line.split(", ");
             SwimmingClubMember swimmingClubMember = new SwimmingClubMember(values[0], Integer.parseInt(values[1]),Boolean.parseBoolean(values[2]),values[3],values[4]);
 
             return swimmingClubMember;
@@ -35,17 +35,18 @@ public class Filehandler {
     }
 
     public void saveMemberData(ArrayList<SwimmingClubMember> members) throws FileNotFoundException {
-        PrintStream memberOutput = new PrintStream(new File ("members.csv"));
+        PrintStream memberOutput = new PrintStream(new File("members.csv"));
         for (SwimmingClubMember member : members) {
             memberOutput.print(member.getName());
-            memberOutput.print(",");
+            memberOutput.print(", ");
             memberOutput.print(member.getAge());
-            memberOutput.print(",");
+            memberOutput.print(", ");
             memberOutput.print(member.getSubscriptionActive());
-            memberOutput.print(",");
+            memberOutput.print(", ");
             memberOutput.print(member.getAgeGroup());
-            memberOutput.print(",");
+            memberOutput.print(", ");
             memberOutput.print(member.getExerciseType());
+            memberOutput.println();
         }
         memberOutput.close();
     }
