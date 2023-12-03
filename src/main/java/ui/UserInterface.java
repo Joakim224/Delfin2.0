@@ -47,16 +47,22 @@ public class UserInterface {
                     System.out.println("Input the members name");
                     System.out.print("Name: ");
                     String name = scanner.nextLine();
-                    System.out.println("Input the members age");
-                    System.out.print("Age: ");
-                    if (scanner.hasNextInt()) {
-                        age = scanner.nextInt();
-                        scanner.nextLine();
 
-                    } else {
-                        System.out.println(color.ANSI_RED + "You need to input a number" + color.ANSI_RESET);
-                        scanner.nextLine();
-                    }
+                    boolean correctInputForAge = true;
+                    do {
+                        System.out.println("Input the members age");
+                        System.out.print("Age: ");
+                        if (scanner.hasNextInt()) {
+                            age = scanner.nextInt();
+                            scanner.nextLine();
+                            correctInputForAge = true;
+                        } else {
+                            System.out.println(color.ANSI_RED + "You need to input a number" + color.ANSI_RESET);
+                            System.out.println(color.ANSI_RED + "Try again: " + color.ANSI_RESET);
+                            scanner.nextLine();
+                            correctInputForAge = false;
+                        }
+                    } while (!correctInputForAge);
 
                     String subscriptionString;
                     boolean subscriptionStatus = false;
