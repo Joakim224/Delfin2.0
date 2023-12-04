@@ -15,6 +15,18 @@ public class UserInterface {
     Scanner scanner = new Scanner(System.in);
     Color color = new Color();
 
+
+    private String userType;
+
+
+    public void loginMessage() {
+        System.out.println("Welcome, please select your user\n" + "\u2500".repeat(50)+ "\n" +
+                "1) Chairman\n" +
+                "2) Trainer\n" +
+                "3) Treasurer\n" +
+                "4) System administrator");
+    }
+
     public void welcomeMessage() {
         System.out.println(
                 "Welcome to the swimclub-database (Delfin)\n" + "\u2500".repeat(50) + "\n" +
@@ -35,8 +47,42 @@ public class UserInterface {
         boolean run = true;
         String input;
         controller.loadData();
+        loginMessage();
+        String inputLogin;
+
+        System.out.print("Input: ");
+        inputLogin = scanner.nextLine().trim().toLowerCase();
+        String[] commandsLogin = inputLogin.split("\\s+");
+        String commandLogin = commandsLogin[0];
+
+        if (scanner.hasNextInt()) {
+            switch (commandLogin) {
+                case "1", "one" -> {
+                    userType = "chairman";
+                }
+                case "2", "two" -> {
+                    userType = "trainer";
+                }
+                case "3" -> {
+                    userType = "treasurer";
+                }
+                case "4" -> {
+                    userType = "admin";
+                }
+            }
+        }
         do {
-            welcomeMessage();
+            switch (userType) {
+                case "chairman" -> {
+                    welcomeMessageChairman();
+                }
+                case "trainer" -> {
+                    welcomeMessageTrainer();
+                }
+                case "treasurer" -> {
+                    welcomeMessageTreasurer();
+                }
+            }
             System.out.print("Input: ");
             input = scanner.nextLine().trim().toLowerCase();
             String[] commands = input.split("\\s+");
@@ -173,5 +219,49 @@ public class UserInterface {
 
             }
         } while (run);
+    }
+
+    private void welcomeMessageTrainer() {
+        System.out.println(
+                "Welcome to the swimclub-database (Delfin)\n" + "\u2500".repeat(50) + "\n" +
+                        "Interact with the menu by inputting the corresponding number\n" +
+                        "(1) Add member\n" +
+                        "(2) Print all members\n" +
+                        "(3) Print revenue\n" +
+                        color.ANSI_RED + "(4) Swimming Result\n"+ color.ANSI_RESET +
+                        "(5)\n" +
+                        "(6)\n" +
+                        "(7)\n" +
+                        "(8)\n" +
+                        "(9) EXIT\n" + "\u2500".repeat(50));
+    }
+
+    private void welcomeMessageChairman() {
+        System.out.println(
+                "Welcome to the swimclub-database (Delfin)\n" + "\u2500".repeat(50) + "\n" +
+                        "Interact with the menu by inputting the corresponding number\n" +
+                        color.ANSI_RED +"(1) Add member\n" + color.ANSI_RESET +
+                        color.ANSI_RED +"(2) Print all members\n"+ color.ANSI_RESET +
+                        color.ANSI_RED +"(3) Print revenue\n"+ color.ANSI_RESET +
+                        "(4) Swimming Result\n" +
+                        "(5)\n" +
+                        "(6)\n" +
+                        "(7)\n" +
+                        "(8)\n" +
+                        "(9) EXIT\n" + "\u2500".repeat(50));
+    }
+    private void welcomeMessageTreasurer() {
+        System.out.println(
+                "Welcome to the swimclub-database (Delfin)\n" + "\u2500".repeat(50) + "\n" +
+                        "Interact with the menu by inputting the corresponding number\n" +
+                        color.ANSI_RED +"(1) Add member\n" + color.ANSI_RESET +
+                        color.ANSI_RED +"(2) Print all members\n"+ color.ANSI_RESET +
+                        "(3) Print revenue\n" +
+                        color.ANSI_RED + "(4) Swimming Result\n"+ color.ANSI_RESET +
+                        "(5)\n" +
+                        "(6)\n" +
+                        "(7)\n" +
+                        "(8)\n" +
+                        "(9) EXIT\n" + "\u2500".repeat(50));
     }
 }
