@@ -2,6 +2,7 @@ package ui;
 
 import data.SwimmingClubMember;
 import domain.Controller;
+import domain.Database;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -12,10 +13,12 @@ import java.util.Scanner;
 public class UserInterface {
     private int age;
     Controller controller = new Controller();
+    Database database = new Database();
     Scanner scanner = new Scanner(System.in);
     Color color = new Color();
 
     public void welcomeMessage() {
+        System.out.println();
         System.out.println(
                 "Welcome to the swimclub-database (Delfin)\n" + "\u2500".repeat(50) + "\n" +
                         "Interact with the menu by inputting the corresponding number\n" +
@@ -23,7 +26,7 @@ public class UserInterface {
                         "(2) Print all members\n" +
                         "(3) Print revenue\n" +
                         "(4) Swimming Result\n" +
-                        "(5)\n" +
+                        "(5) Order competitive swimmers by age\n" +
                         "(6)\n" +
                         "(7)\n" +
                         "(8)\n" +
@@ -164,6 +167,11 @@ public class UserInterface {
                         System.out.println(color.ANSI_GREEN + "Swimming result added for " + selectedMember.getName() + color.ANSI_RESET);
                         System.out.println("\u2500".repeat(50) + " ");
                     }
+                }
+
+                case "5", "five" -> {
+                    System.out.println("Printing: ");
+                    controller.competitiveSwimmersSplit();
                 }
 
                 case "9", "nine" -> {

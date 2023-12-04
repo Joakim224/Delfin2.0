@@ -1,7 +1,6 @@
 package data;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 
 public class SwimmingClubMember {
     private String name;

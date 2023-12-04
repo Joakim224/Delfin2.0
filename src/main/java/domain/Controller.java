@@ -2,8 +2,6 @@ package domain;
 
 import data.Filehandler;
 import data.SwimmingClubMember;
-
-import java.io.FileNotFoundException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
@@ -24,32 +22,23 @@ public class Controller {
         return database.checkSubscription();
     }
 
-    public void loadData() throws FileNotFoundException {
-        filehandler.loadMemberData(database.getMembers());
+    public void loadData() {
+        database.loadData();
     }
 
     public void saveData() {
-        try {
-            filehandler.saveMemberData(database.getMembers());
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found");
-        }
+        database.saveData();
     }
 
     public ArrayList<SwimmingClubMember> searchMember(String memberName) {
-        return database.findMemberName(memberName);
+        return database.searchMember(memberName);
     }
 
     public void addSwimmingResult(String name, LocalDateTime swimmingResultDateTime, String event, int placement) {
+        database.addSwimmingResult(name, swimmingResultDateTime, event, placement);
+    }
 
-        ArrayList<SwimmingClubMember> foundMembers = searchMember(name);
-
-        if (!foundMembers.isEmpty()) {
-            SwimmingClubMember selectedMember = foundMembers.get(0);
-
-            selectedMember.setSwimmingResultDateTime(swimmingResultDateTime);
-            selectedMember.setEvent(event);
-            selectedMember.setPlacement(placement);
-        }
+    public void competitiveSwimmersSplit() {
+        database.splitAndPrintCompetitiveSwimmers(database.getMembers());
     }
 }

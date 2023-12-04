@@ -1,5 +1,4 @@
 import ui.UserInterface;
-
 import java.io.FileNotFoundException;
 
 public class Main {

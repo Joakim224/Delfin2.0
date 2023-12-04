@@ -1,8 +1,5 @@
 package data;
 
-import data.SwimmingClubMember;
-import domain.Database;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
