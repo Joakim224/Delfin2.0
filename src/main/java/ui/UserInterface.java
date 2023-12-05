@@ -121,7 +121,9 @@ public class UserInterface {
                 }
 
                 case "3", "three" -> {
+                    controller.displaySubscriptionFees();
                     System.out.println(controller.checkSubscription() + ",- DKK");
+
                 }
 
                 case "4", "four" -> {

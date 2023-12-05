@@ -52,4 +52,14 @@ public class Controller {
             selectedMember.setPlacement(placement);
         }
     }
+    public void displaySubscriptionFees() {
+        System.out.println("Subscription Fees:");
+
+        for (SwimmingClubMember member : database.getMembers()) {
+            System.out.println(member.getName() + ": " + member.getSubscriptionFee() + " DKK");
+        }
+    }
+
+
+
 }
