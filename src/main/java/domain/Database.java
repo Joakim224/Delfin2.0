@@ -83,17 +83,17 @@ public class Database {
         }
 
         System.out.println("Competitive swimmers under 18: ");
-        printSwimmers(competitiveSwimmersUnder18);
+        for (SwimmingClubMember under18 : competitiveSwimmersUnder18) {
+            System.out.println("Name: " + under18.getName() +
+                    ", Age: " + under18.getAge() +
+                    ", Exercise Type: " + under18.getExerciseType());
+        }
 
         System.out.println("\nCompetitive swimmers 18 and above: ");
-        printSwimmers(competitiveSwimmers18AndAbove);
-    }
-
-    public void printSwimmers(ArrayList<SwimmingClubMember> members) {
-        for (SwimmingClubMember member : members) {
-            System.out.println("Name: " + member.getName() +
-                    ", Age: " + member.getAge() +
-                    ", Exercise Type: " + member.getExerciseType());
+        for (SwimmingClubMember plus18 : competitiveSwimmers18AndAbove) {
+            System.out.println("Name: " + plus18.getName() +
+                    ", Age: " + plus18.getAge() +
+                    ", Exercise Type: " + plus18.getExerciseType());
         }
     }
 

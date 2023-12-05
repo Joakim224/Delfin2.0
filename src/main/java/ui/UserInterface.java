@@ -13,7 +13,6 @@ import java.util.Scanner;
 public class UserInterface {
     private int age;
     Controller controller = new Controller();
-    Database database = new Database();
     Scanner scanner = new Scanner(System.in);
     Color color = new Color();
 
@@ -170,7 +169,6 @@ public class UserInterface {
                 }
 
                 case "5", "five" -> {
-                    System.out.println("Printing: ");
                     controller.competitiveSwimmersSplit();
                 }
 
