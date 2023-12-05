@@ -127,4 +127,16 @@ public class Database {
             System.out.println(color.ANSI_GREEN + "File not found." + color.ANSI_RESET);
         }
     }
+
+    public void displaySubscriptionFees() {
+        System.out.println("Subscription Fees:");
+
+        double totalSubscriptionFees = 0.0;
+
+        for (SwimmingClubMember member : members) {
+            double memberFee = calculateSubscriptionFee(member);
+            totalSubscriptionFees += memberFee;
+            System.out.println(member.getName() + ": " + memberFee + " DKK");
+        }
+    }
 }

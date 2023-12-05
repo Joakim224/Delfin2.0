@@ -13,7 +13,6 @@ public class SwimmingClubMember {
     private int placement;
     private double subscriptionFee;
 
-
     public SwimmingClubMember(String name, int age, boolean subscriptionActive, String ageGroup, String exerciseType) {
         this.name = name;
         this.age = age;
@@ -23,15 +22,22 @@ public class SwimmingClubMember {
         this.swimmingResultDateTime = null;
         this.event = "";
         this.placement = 0;
-
-
+        calculateSubscriptionFee();
     }
-
 
     public double getSubscriptionFee() {
         return subscriptionFee;
     }
 
+    private void calculateSubscriptionFee() {
+        if (getAge() < 18) {
+            subscriptionFee = 1000;
+        } else if (getAge() >= 18 && getAge() < 60) {
+            subscriptionFee = 1600;
+        } else {
+            subscriptionFee = 1600 * 0.75;
+        }
+    }
 
     public String getName() {
         return name;
@@ -49,9 +55,6 @@ public class SwimmingClubMember {
         return exerciseType;
     }
 
-
-
-
     public LocalDateTime getSwimmingResultDateTime() {
         return swimmingResultDateTime;
     }
@@ -59,7 +62,6 @@ public class SwimmingClubMember {
     public void setSwimmingResultDateTime(LocalDateTime swimmingResultDateTime) {
         this.swimmingResultDateTime = swimmingResultDateTime;
     }
-
 
     public String getEvent() {
         return event;
