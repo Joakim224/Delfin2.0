@@ -66,6 +66,16 @@ public class UserInterface {
                         }
                     } while (!correctInputForAge);
 
+
+
+
+                    String ageGroup;
+                    if (age < 18) {
+                        ageGroup = "Junior";
+                    } else {
+                        ageGroup = "Senior";
+                    }
+
                     String subscriptionString;
                     boolean subscriptionStatus = false;
                     boolean validSubscriptionStatus = true;
@@ -85,20 +95,6 @@ public class UserInterface {
                         }
                     } while (!validSubscriptionStatus);
 
-                    String ageGroup;
-                    boolean junior = false;
-                    boolean validAgeGroup = true;
-                    do {
-                        validAgeGroup = true;
-                        System.out.println("Select your age group: ('Junior' for under 18, 'Senior' for over 18");
-                        ageGroup = scanner.nextLine().trim().toLowerCase();
-                        if (ageGroup.equals("junior") || ageGroup.equals("senior")) {
-                            junior = true;
-                        } else {
-                            System.out.println(color.ANSI_RED + "Invalid input" + color.ANSI_RESET);
-                            validAgeGroup = false;
-                        }
-                    } while (!validAgeGroup);
 
                     String exerciseType;
                     boolean excerciseActive = false;
@@ -127,7 +123,9 @@ public class UserInterface {
                 }
 
                 case "3", "three" -> {
+                    controller.displaySubscriptionFees();
                     System.out.println(controller.checkSubscription() + ",- DKK");
+
                 }
 
                 case "4", "four" -> {

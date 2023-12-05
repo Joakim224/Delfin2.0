@@ -41,4 +41,14 @@ public class Controller {
     public void competitiveSwimmersSplit() {
         database.splitAndPrintCompetitiveSwimmers(database.getMembers());
     }
+    public void displaySubscriptionFees() {
+        System.out.println("Subscription Fees:");
+
+        for (SwimmingClubMember member : database.getMembers()) {
+            System.out.println(member.getName() + ": " + member.getSubscriptionFee() + " DKK");
+        }
+    }
+
+
+
 }
