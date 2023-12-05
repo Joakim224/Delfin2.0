@@ -44,11 +44,15 @@ public class Controller {
     public void displaySubscriptionFees() {
         System.out.println("Subscription Fees:");
 
-        for (SwimmingClubMember member : database.getMembers()) {
-            System.out.println(member.getName() + ": " + member.getSubscriptionFee() + " DKK");
-        }
-    }
+        double totalSubscriptionFees = 0.0;
 
+        for (SwimmingClubMember member : database.getMembers()) {
+            double memberFee = database.calculateSubscriptionFee(member);
+            totalSubscriptionFees += memberFee;
+            System.out.println(member.getName() + ": " + memberFee + " DKK");
+        }
+
+    }
 
 
 }

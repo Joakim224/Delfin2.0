@@ -31,6 +31,19 @@ public class Database {
         return yearlyIncome;
     }
 
+    public double calculateSubscriptionFee(SwimmingClubMember member) {
+        double fee;
+
+        if (member.getAge() < 18) {
+            fee = 1000;
+        } else if (member.getAge() >= 18 && member.getAge() < 60) {
+            fee = 1600;
+        } else {
+            fee = 1600 * 0.75;
+        }
+
+        return fee;
+    }
     public void printMembers() {
         for (SwimmingClubMember member : members) {
             System.out.println(member);
