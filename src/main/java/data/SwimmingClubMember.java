@@ -15,7 +15,7 @@ public class SwimmingClubMember {
     private double subscriptionFee;
 
 
-    public SwimmingClubMember(String name, int age, boolean subscriptionActive, String ageGroup, String exerciseType, String activeDiscipline ,String swimmingResultDateTime, String event, int placement ) {
+    public SwimmingClubMember(String name, int age, boolean subscriptionActive, String ageGroup, String exerciseType, String activeDiscipline, String swimmingResultDateTime, String event, int placement ) {
         this.name = name;
         this.age = age;
         this.subscriptionActive = subscriptionActive;
@@ -25,9 +25,8 @@ public class SwimmingClubMember {
         this.swimmingResultDateTime = null;
         this.event = "";
         this.placement = 0;
-
-
     }
+
     public SwimmingClubMember(String name, int age, boolean subscriptionActive, String ageGroup, String exerciseType, String activeDiscipline) {
         this.name = name;
         this.age = age;
@@ -35,18 +34,11 @@ public class SwimmingClubMember {
         this.ageGroup = ageGroup;
         this.exerciseType = exerciseType;
         this.activeDiscipline = activeDiscipline;
-
-
-
-
     }
-
-
 
     public double getSubscriptionFee() {
         return subscriptionFee;
     }
-
 
     public String getName() {
         return name;
@@ -76,7 +68,6 @@ public class SwimmingClubMember {
         this.swimmingResultDateTime = swimmingResultDateTime;
     }
 
-
     public String getEvent() {
         return event;
     }
@@ -92,6 +83,7 @@ public class SwimmingClubMember {
     public void setPlacement(int placement) {
         this.placement = placement;
     }
+
     public Boolean getSubscriptionActive() {
         return subscriptionActive;
     }

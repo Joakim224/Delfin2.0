@@ -45,6 +45,4 @@ public class Controller {
     public void displaySubscriptionFeesAndPaymentStatus() {
         database.displaySubscriptionFeesAndPaymentStatus();
     }
-
-
 }

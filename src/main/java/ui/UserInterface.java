@@ -66,9 +66,6 @@ public class UserInterface {
                         }
                     } while (!correctInputForAge);
 
-
-
-
                     String ageGroup;
                     if (age < 18) {
                         ageGroup = "Junior";
