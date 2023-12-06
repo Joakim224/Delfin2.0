@@ -37,7 +37,7 @@ public class Filehandler {
     public void saveMemberData(ArrayList<SwimmingClubMember> members) throws FileNotFoundException {
         PrintStream memberOutput = new PrintStream(new File("members.csv"));
         for (SwimmingClubMember member : members) {
-            if (member.getSwimmingResultDateTime()==null) {
+            if (member.getSwimmingResultDateTime() == null) {
                 memberOutput.print(member.getName());
                 memberOutput.print(", ");
                 memberOutput.print(member.getAge());

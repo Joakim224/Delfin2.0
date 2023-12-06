@@ -104,14 +104,16 @@ public class Database {
         for (SwimmingClubMember under18 : competitiveSwimmersUnder18) {
             System.out.println("Name: " + under18.getName() +
                     ", Age: " + under18.getAge() +
-                    ", Exercise Type: " + under18.getExerciseType());
+                    ", Exercise type: " + under18.getExerciseType() +
+                    ", Active discipline: " + under18.getActiveDiscipline());
         }
 
         System.out.println("\nCompetitive swimmers 18 and above: ");
         for (SwimmingClubMember plus18 : competitiveSwimmers18AndAbove) {
             System.out.println("Name: " + plus18.getName() +
                     ", Age: " + plus18.getAge() +
-                    ", Exercise Type: " + plus18.getExerciseType());
+                    ", Exercise type: " + plus18.getExerciseType() +
+                    ", Active discipline: " + plus18.getActiveDiscipline());
         }
     }
 
