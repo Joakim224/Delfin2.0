@@ -130,15 +130,18 @@ public class Database {
         }
     }
 
-    public void displaySubscriptionFees() {
-        System.out.println("Subscription Fees:");
+    public void displaySubscriptionFeesAndPaymentStatus() {
+        System.out.println("Subscription Fees and Payment Status:");
 
         double totalSubscriptionFees = 0.0;
 
         for (SwimmingClubMember member : members) {
             double memberFee = calculateSubscriptionFee(member);
             totalSubscriptionFees += memberFee;
-            System.out.println(member.getName() + ": " + memberFee + " DKK");
+            String paymentStatus = member.getSubscriptionActive() ? "Paid" : "Not Paid";
+            System.out.println(member.getName() + ": " + memberFee + " DKK - Payment Status: " + paymentStatus);
         }
+
+        System.out.println("Total: " + totalSubscriptionFees + " DKK");
     }
 }

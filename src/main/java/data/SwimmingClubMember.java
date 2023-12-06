@@ -24,22 +24,14 @@ public class SwimmingClubMember {
         this.swimmingResultDateTime = null;
         this.event = "";
         this.placement = 0;
-        calculateSubscriptionFee();
+
     }
 
     public double getSubscriptionFee() {
         return subscriptionFee;
     }
 
-    private void calculateSubscriptionFee() {
-        if (getAge() < 18) {
-            subscriptionFee = 1000;
-        } else if (getAge() >= 18 && getAge() < 60) {
-            subscriptionFee = 1600;
-        } else {
-            subscriptionFee = 1600 * 0.75;
-        }
-    }
+
 
     public String getName() {
         return name;
