@@ -13,7 +13,7 @@ public class Unittest {
     @Test
     public void testAddMember() {
         Database database = new Database();
-        database.addMember("John", 25, true, "Senior", "Regular", "Crawl");
+        database.addMember("John", 25, true, "Senior", "Regular", "Crawl", true);
 
         assertEquals(1, database.getMembers().size());
     }
@@ -22,9 +22,9 @@ public class Unittest {
     public void testCheckSubscription() {
         Database database = new Database();
 
-        database.addMember("John", 17, true, "Junior", "Regular", "Back crawl");
-        database.addMember("Jane", 25, true, "Senior", "Regular", "Butterfly");
-        database.addMember("Bob", 65, true, "Senior", "Competitive", "Breaststroke");
+        database.addMember("John", 17, true, "Junior", "Regular", "Back crawl", true);
+        database.addMember("Jane", 25, true, "Senior", "Regular", "Butterfly", true);
+        database.addMember("Bob", 65, true, "Senior", "Competitive", "Breaststroke", true);
         double yearlyIncome = database.checkSubscription();
         assertEquals(1000 + 1600 + (1600 * 0.75), yearlyIncome);
     }
@@ -32,8 +32,8 @@ public class Unittest {
     @Test
     public void testFindMemberName() {
         Database database = new Database();
-        database.addMember("Jhon", 17, true, "Junior", "regular", "Butterfly");
-        database.addMember("Jhon", 25, true, "Senior", "regular", "Breaststroke");
+        database.addMember("Jhon", 17, true, "Junior", "regular", "Butterfly", true);
+        database.addMember("Jhon", 25, true, "Senior", "regular", "Breaststroke", true);
 
         // søg af superhelt navn
         ArrayList<SwimmingClubMember> findMemberName = database.findMemberName("Jhon");
@@ -51,8 +51,8 @@ public class Unittest {
         Controller c = new Controller();
 
         // Tilføjer 2 test members
-        c.addMember("Test1", 15, true, "Junior", "Regular", "Crawl");
-        c.addMember("Test2", 30, true, "Senior", "Competitive", "Butterfly");
+        c.addMember("Test1", 15, true, "Junior", "Regular", "Crawl", true);
+        c.addMember("Test2", 30, true, "Senior", "Competitive", "Butterfly", true);
 
         // Kalder printMembers metoden og samler det printede information op i printStream
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();

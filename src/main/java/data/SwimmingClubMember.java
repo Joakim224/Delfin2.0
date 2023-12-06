@@ -1,7 +1,5 @@
 package data;
 
-import java.time.LocalDateTime;
-
 public class SwimmingClubMember {
     private String name;
     private int age;
@@ -14,7 +12,6 @@ public class SwimmingClubMember {
     private int placement;
     private double subscriptionFee;
     private boolean displaySubscriptionFeesAndPaymentStatus;
-
 
     public SwimmingClubMember(String name, int age, boolean subscriptionActive, String ageGroup, String exerciseType, String activeDiscipline, String swimmingResultDateTime, String event, int placement, boolean displaySubscriptionFeesAndPaymentStatus) {
         this.name = name;
@@ -39,10 +36,10 @@ public class SwimmingClubMember {
         this.displaySubscriptionFeesAndPaymentStatus = displaySubscriptionFeesAndPaymentStatus;
     }
 
-
     public boolean getdisplaySubscriptionFeesAndPaymentStatus() {
         return displaySubscriptionFeesAndPaymentStatus;
     }
+
     public double getSubscriptionFee() {
         return subscriptionFee;
     }

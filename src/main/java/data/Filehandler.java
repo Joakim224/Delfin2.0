@@ -22,17 +22,16 @@ public class Filehandler {
         try {
             String[] values = line.split(", ");
             if (values.length==7) {
-                SwimmingClubMember swimmingClubMember = new SwimmingClubMember(values[0], Integer.parseInt(values[1]),Boolean.parseBoolean(values[2]),values[3],values[4],values[5], Boolean.parseBoolean(values[6]));
+                SwimmingClubMember swimmingClubMember = new SwimmingClubMember(values[0], Integer.parseInt(values[1]), Boolean.parseBoolean(values[2]), values[3], values[4], values[5], Boolean.parseBoolean(values[6]));
                 return swimmingClubMember;
-            } else{
-                SwimmingClubMember swimmingClubMember = new SwimmingClubMember(values[0], Integer.parseInt(values[1]),Boolean.parseBoolean(values[2]),values[3],values[4],values[5],values[6],values[7],Integer.parseInt(values[8], Boolean.parseBoolean(values[9]));
+            } else {
+                SwimmingClubMember swimmingClubMember = new SwimmingClubMember(values[0], Integer.parseInt(values[1]), Boolean.parseBoolean(values[2]), values[3], values[4], values[5], values[6], values[7], Integer.parseInt(values[8]), Boolean.parseBoolean(values[9]));
                 return swimmingClubMember;
             }
         } catch (NumberFormatException e) {
             System.out.println("File not found");
             return null;
         }
-
     }
 
     public void saveMemberData(ArrayList<SwimmingClubMember> members) throws FileNotFoundException {
@@ -50,7 +49,7 @@ public class Filehandler {
                 memberOutput.print(member.getExerciseType());
                 memberOutput.print(", ");
                 memberOutput.print(member.getActiveDiscipline());
-                memberOutput.println();
+                memberOutput.print(", ");
                 memberOutput.print(member.getdisplaySubscriptionFeesAndPaymentStatus());
                 memberOutput.println();
             } else {
@@ -71,10 +70,9 @@ public class Filehandler {
                 memberOutput.print(member.getEvent());
                 memberOutput.print(", ");
                 memberOutput.print(member.getPlacement());
-                memberOutput.println();
+                memberOutput.print(", ");
                 memberOutput.print(member.getdisplaySubscriptionFeesAndPaymentStatus());
                 memberOutput.println();
-
             }
         }
         memberOutput.close();

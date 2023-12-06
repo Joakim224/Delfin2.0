@@ -44,9 +44,14 @@ public class Database {
 
         return fee;
     }
+
     public void printMembers() {
-        for (SwimmingClubMember member : members) {
-            System.out.println(member);
+        if (!members.isEmpty()) {
+            for (SwimmingClubMember member : members) {
+                System.out.println(member);
+            }
+        } else {
+            System.out.println(color.ANSI_RED + "There are no members in the system yet. \nPress 1 to add a member." + color.ANSI_RESET);
         }
     }
 
@@ -99,16 +104,14 @@ public class Database {
         for (SwimmingClubMember under18 : competitiveSwimmersUnder18) {
             System.out.println("Name: " + under18.getName() +
                     ", Age: " + under18.getAge() +
-                    ", Exercise type: " + under18.getExerciseType() +
-                    ", Active discipline: " + under18.getActiveDiscipline());
+                    ", Exercise Type: " + under18.getExerciseType());
         }
 
         System.out.println("\nCompetitive swimmers 18 and above: ");
         for (SwimmingClubMember plus18 : competitiveSwimmers18AndAbove) {
             System.out.println("Name: " + plus18.getName() +
                     ", Age: " + plus18.getAge() +
-                    ", Exercise type: " + plus18.getExerciseType() +
-                    ", Active discipline: " + plus18.getActiveDiscipline());
+                    ", Exercise Type: " + plus18.getExerciseType());
         }
     }
 

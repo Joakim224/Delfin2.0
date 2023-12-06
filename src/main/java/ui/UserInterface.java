@@ -25,7 +25,7 @@ public class UserInterface {
                         "(2) Print all members\n" +
                         "(3) Print revenue\n" +
                         "(4) Swimming Result\n" +
-                        "(5) Order competitive swimmers by age\n" +
+                        "(5) Order competitive swimmers by age and discipline\n" +
                         "(6)\n" +
                         "(7)\n" +
                         "(8)\n" +
@@ -92,9 +92,9 @@ public class UserInterface {
                         }
                     } while (!validSubscriptionStatus);
 
-
                     String exerciseType;
                     boolean validType = true;
+                    String activeDiscipline = "";
                     do {
                         validType = true;
                         System.out.println("Input your exercise type ('Regular' or 'Competitive')");
@@ -107,20 +107,20 @@ public class UserInterface {
                         }
                     } while (!validType);
 
-                    String activeDiscipline;
-                    boolean validDiscipline = true;
-                    do {
-                        validDiscipline = true;
-                        System.out.println("Input the discipline you're most active in: ('Crawl', 'Back crawl', 'Butterfly' or 'Breaststroke)");
-                        activeDiscipline = scanner.nextLine().trim().toLowerCase();
-                        if (activeDiscipline.equals("crawl") || activeDiscipline.equals("back crawl") || activeDiscipline.equals("butterfly") || activeDiscipline.equals("breaststroke")) {
+                        if (exerciseType.equals("competitive")) {
+                            boolean validDiscipline = true;
+                            do {
+                                validDiscipline = true;
+                                System.out.println("Input the discipline you're most active in: ('Crawl', 'Back crawl', 'Butterfly' or 'Breaststroke)");
+                                activeDiscipline = scanner.nextLine().trim().toLowerCase();
+                                if (activeDiscipline.equals("crawl") || activeDiscipline.equals("back crawl") || activeDiscipline.equals("butterfly") || activeDiscipline.equals("breaststroke")) {
 
-                        } else {
-                            System.out.println(color.ANSI_RED + "Invalid input" + color.ANSI_RESET);
-                            validDiscipline = false;
+                                } else {
+                                    System.out.println(color.ANSI_RED + "Invalid input" + color.ANSI_RESET);
+                                    validDiscipline = false;
+                                }
+                            } while (!validDiscipline);
                         }
-                    } while (!validDiscipline);
-
 
                     boolean displaySubscriptionFeesAndPaymentStatus = true;
                     controller.addMember(name, age, subscriptionStatus, ageGroup, exerciseType, activeDiscipline, displaySubscriptionFeesAndPaymentStatus);
@@ -136,8 +136,6 @@ public class UserInterface {
 
                 case "3", "three" -> {
                     controller.displaySubscriptionFeesAndPaymentStatus();
-
-
                 }
 
                 case "4", "four" -> {

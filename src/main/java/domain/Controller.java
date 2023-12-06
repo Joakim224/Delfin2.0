@@ -11,7 +11,7 @@ public class Controller {
     private ArrayList<SwimmingClubMember> members = new ArrayList<>();
 
     public void addMember(String name, int age, boolean subscriptionActive, String ageGroup, String excerciseType, String activeDiscipline, boolean displaySubscriptionFeesAndPaymentStatus) {
-        database.addMember(name, age, subscriptionActive, ageGroup, excerciseType, activeDiscipline);
+        database.addMember(name, age, subscriptionActive, ageGroup, excerciseType, activeDiscipline, displaySubscriptionFeesAndPaymentStatus);
     }
 
     public void printMembers() {
