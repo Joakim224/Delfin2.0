@@ -65,13 +65,13 @@ public class Filehandler {
                 memberOutput.print(member.getAgeGroup());
                 memberOutput.print(", ");
                 memberOutput.print(member.getExerciseType());
-                memberOutput.println(", ");
+                memberOutput.print(", ");
                 memberOutput.print(member.getActiveDiscipline());
-                memberOutput.println(", ");
+                memberOutput.print(", ");
                 memberOutput.print(member.getSwimmingResultDateTime());
-                memberOutput.println(", ");
+                memberOutput.print(", ");
                 memberOutput.print(member.getEvent());
-                memberOutput.println(", ");
+                memberOutput.print(", ");
                 memberOutput.print(member.getPlacement());
                 memberOutput.println();
             }
