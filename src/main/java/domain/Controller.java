@@ -34,7 +34,7 @@ public class Controller {
         return database.searchMember(memberName);
     }
 
-    public void addSwimmingResult(String name, LocalDateTime swimmingResultDateTime, String event, int placement) {
+    public void addSwimmingResult(String name, String swimmingResultDateTime, String event, int placement) {
         database.addSwimmingResult(name, swimmingResultDateTime, event, placement);
     }
 

@@ -68,7 +68,7 @@ public class Database {
         return findMemberName(memberName);
     }
 
-    public void addSwimmingResult(String name, LocalDateTime swimmingResultDateTime, String event, int placement) {
+    public void addSwimmingResult(String name, String swimmingResultDateTime, String event, int placement) {
 
         ArrayList<SwimmingClubMember> foundMembers = searchMember(name);
 

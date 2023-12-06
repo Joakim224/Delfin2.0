@@ -162,7 +162,7 @@ public class UserInterface {
                         String timeString = scanner.nextLine();
 
                         String dateTimeString = dateString + " " + timeString;
-                        LocalDateTime swimmingResultDateTime = LocalDateTime.parse(dateTimeString, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+                        String swimmingResultDateTime = dateTimeString;
 
                         System.out.print("Input the event (if competitive, otherwise leave empty): ");
                         String event = scanner.nextLine();

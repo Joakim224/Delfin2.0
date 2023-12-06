@@ -8,13 +8,14 @@ public class SwimmingClubMember {
     private boolean subscriptionActive;
     private String ageGroup;
     private String exerciseType;
+    private String swimmingResultDateTime;
     private String activeDiscipline;
-    private LocalDateTime swimmingResultDateTime;
     private String event;
     private int placement;
     private double subscriptionFee;
 
-    public SwimmingClubMember(String name, int age, boolean subscriptionActive, String ageGroup, String exerciseType, String activeDiscipline) {
+
+    public SwimmingClubMember(String name, int age, boolean subscriptionActive, String ageGroup, String exerciseType, String activeDiscipline ,String swimmingResultDateTime, String event, int placement ) {
         this.name = name;
         this.age = age;
         this.subscriptionActive = subscriptionActive;
@@ -25,12 +26,26 @@ public class SwimmingClubMember {
         this.event = "";
         this.placement = 0;
 
+
     }
+    public SwimmingClubMember(String name, int age, boolean subscriptionActive, String ageGroup, String exerciseType, String activeDiscipline) {
+        this.name = name;
+        this.age = age;
+        this.subscriptionActive = subscriptionActive;
+        this.ageGroup = ageGroup;
+        this.exerciseType = exerciseType;
+        this.activeDiscipline = activeDiscipline;
+
+
+
+
+    }
+
+
 
     public double getSubscriptionFee() {
         return subscriptionFee;
     }
-
 
 
     public String getName() {
@@ -53,13 +68,14 @@ public class SwimmingClubMember {
         return activeDiscipline;
     }
 
-    public LocalDateTime getSwimmingResultDateTime() {
+    public String getSwimmingResultDateTime() {
         return swimmingResultDateTime;
     }
 
-    public void setSwimmingResultDateTime(LocalDateTime swimmingResultDateTime) {
+    public void setSwimmingResultDateTime(String swimmingResultDateTime) {
         this.swimmingResultDateTime = swimmingResultDateTime;
     }
+
 
     public String getEvent() {
         return event;
