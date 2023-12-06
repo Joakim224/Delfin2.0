@@ -2,11 +2,6 @@ package ui;
 
 import data.SwimmingClubMember;
 import domain.Controller;
-import domain.Database;
-
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 

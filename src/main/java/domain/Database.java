@@ -4,9 +4,7 @@ import data.SwimmingClubMember;
 import data.Filehandler;
 import ui.Color;
 import java.io.FileNotFoundException;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Database {
     ArrayList<SwimmingClubMember> members = new ArrayList<>();
