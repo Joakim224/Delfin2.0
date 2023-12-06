@@ -33,7 +33,7 @@ public class UserInterface {
                 );
     }
 
-    public void startProgram() throws FileNotFoundException {
+    public void startProgram() {
         boolean run = true;
         String input;
         controller.loadData();
