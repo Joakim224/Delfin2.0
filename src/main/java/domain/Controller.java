@@ -10,8 +10,8 @@ public class Controller {
     Filehandler filehandler = new Filehandler();
     private ArrayList<SwimmingClubMember> members = new ArrayList<>();
 
-    public void addMember(String name, int age, boolean subscriptionActive, String ageGroup, String excerciseType) {
-        database.addMember(name, age, subscriptionActive, ageGroup, excerciseType);
+    public void addMember(String name, int age, boolean subscriptionActive, String ageGroup, String excerciseType, String activeDiscipline) {
+        database.addMember(name, age, subscriptionActive, ageGroup, excerciseType, activeDiscipline);
     }
 
     public void printMembers() {

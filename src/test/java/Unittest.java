@@ -13,7 +13,7 @@ public class Unittest {
     @Test
     public void testAddMember() {
         Database database = new Database();
-        database.addMember("John", 25, true, "Senior", "Regular");
+        database.addMember("John", 25, true, "Senior", "Regular", "Crawl");
 
         assertEquals(1, database.getMembers().size());
     }
@@ -22,9 +22,9 @@ public class Unittest {
     public void testCheckSubscription() {
         Database database = new Database();
 
-        database.addMember("John", 17, true, "Junior", "Regular");
-        database.addMember("Jane", 25, true, "Senior", "Regular");
-        database.addMember("Bob", 65, true, "Senior", "Competitive");
+        database.addMember("John", 17, true, "Junior", "Regular", "Back crawl");
+        database.addMember("Jane", 25, true, "Senior", "Regular", "Butterfly");
+        database.addMember("Bob", 65, true, "Senior", "Competitive", "Breaststroke");
         double yearlyIncome = database.checkSubscription();
         assertEquals(1000 + 1600 + (1600 * 0.75), yearlyIncome);
     }
@@ -32,8 +32,8 @@ public class Unittest {
     @Test
     public void testFindMemberName() {
         Database database = new Database();
-        database.addMember("Jhon", 17, true, "Junior", "regular");
-        database.addMember("Jhon", 25, true, "Senior", "regular");
+        database.addMember("Jhon", 17, true, "Junior", "regular", "Butterfly");
+        database.addMember("Jhon", 25, true, "Senior", "regular", "Breaststroke");
 
         // søg af superhelt navn
         ArrayList<SwimmingClubMember> findMemberName = database.findMemberName("Jhon");
@@ -51,8 +51,8 @@ public class Unittest {
         Controller c = new Controller();
 
         // Tilføjer 2 test members
-        c.addMember("Test1", 15, true, "Junior", "Regular");
-        c.addMember("Test2", 30, true, "Senior", "Competitive");
+        c.addMember("Test1", 15, true, "Junior", "Regular", "Crawl");
+        c.addMember("Test2", 30, true, "Senior", "Competitive", "Butterfly");
 
         // Kalder printMembers metoden og samler det printede information op i printStream
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -61,9 +61,9 @@ public class Unittest {
 
         // Definere forventet output fra test members
         String expectedOutput =
-                "Member: Test1, age: 15, active subscription: true, age group: Junior, exercise type: Regular" +
+                "Member: Test1, age: 15, active subscription: true, age group: Junior, exercise type: Regular, active discipline: Crawl" +
                 System.lineSeparator() +
-                "Member: Test2, age: 30, active subscription: true, age group: Senior, exercise type: Competitive";
+                "Member: Test2, age: 30, active subscription: true, age group: Senior, exercise type: Competitive, active discipline: Butterfly";
 
         // Asserter at forventede og printede output er det samme
         assertEquals(expectedOutput, outContent.toString().trim());

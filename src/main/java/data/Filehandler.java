@@ -21,7 +21,7 @@ public class Filehandler {
     public SwimmingClubMember parseCSV(String line) {
         try {
             String[] values = line.split(", ");
-            SwimmingClubMember swimmingClubMember = new SwimmingClubMember(values[0], Integer.parseInt(values[1]),Boolean.parseBoolean(values[2]),values[3],values[4]);
+            SwimmingClubMember swimmingClubMember = new SwimmingClubMember(values[0], Integer.parseInt(values[1]), Boolean.parseBoolean(values[2]), values[3], values[4], values[5]);
 
             return swimmingClubMember;
 
@@ -43,6 +43,8 @@ public class Filehandler {
             memberOutput.print(member.getAgeGroup());
             memberOutput.print(", ");
             memberOutput.print(member.getExerciseType());
+            memberOutput.print(", ");
+            memberOutput.print(member.getActiveDiscipline());
             memberOutput.println();
         }
         memberOutput.close();

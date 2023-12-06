@@ -97,21 +97,35 @@ public class UserInterface {
 
 
                     String exerciseType;
-                    boolean excerciseActive = false;
                     boolean validType = true;
                     do {
                         validType = true;
                         System.out.println("Input your exercise type ('Regular' or 'Competitive')");
                         exerciseType = scanner.nextLine().trim().toLowerCase();
                         if (exerciseType.equals("regular") || exerciseType.equals("competitive")) {
-                            excerciseActive = true;
+
                         } else {
                             System.out.println(color.ANSI_RED + "Invalid input" + color.ANSI_RESET);
                             validType = false;
                         }
                     } while (!validType);
 
-                    controller.addMember(name, age, subscriptionStatus, ageGroup, exerciseType);
+                    String activeDiscipline;
+                    boolean validDiscipline = true;
+                    do {
+                        validDiscipline = true;
+                        System.out.println("Input the discipline you're most active in: ('Crawl', 'Back crawl', 'Butterfly' or 'Breaststroke)");
+                        activeDiscipline = scanner.nextLine().trim().toLowerCase();
+                        if (activeDiscipline.equals("crawl") || activeDiscipline.equals("back crawl") || activeDiscipline.equals("butterfly") || activeDiscipline.equals("breaststroke")) {
+
+                        } else {
+                            System.out.println(color.ANSI_RED + "Invalid input" + color.ANSI_RESET);
+                            validDiscipline = false;
+                        }
+                    } while (!validDiscipline);
+
+
+                    controller.addMember(name, age, subscriptionStatus, ageGroup, exerciseType, activeDiscipline);
 
                     System.out.println(color.ANSI_GREEN + "Swimming member added" + color.ANSI_RESET);
                     System.out.println("\u2500".repeat(50) + " ");
