@@ -13,9 +13,10 @@ public class SwimmingClubMember {
     private String event;
     private int placement;
     private double subscriptionFee;
+    private boolean displaySubscriptionFeesAndPaymentStatus;
 
 
-    public SwimmingClubMember(String name, int age, boolean subscriptionActive, String ageGroup, String exerciseType, String activeDiscipline, String swimmingResultDateTime, String event, int placement ) {
+    public SwimmingClubMember(String name, int age, boolean subscriptionActive, String ageGroup, String exerciseType, String activeDiscipline, String swimmingResultDateTime, String event, int placement, boolean displaySubscriptionFeesAndPaymentStatus) {
         this.name = name;
         this.age = age;
         this.subscriptionActive = subscriptionActive;
@@ -25,17 +26,23 @@ public class SwimmingClubMember {
         this.swimmingResultDateTime = null;
         this.event = "";
         this.placement = 0;
+        this.displaySubscriptionFeesAndPaymentStatus = displaySubscriptionFeesAndPaymentStatus;
     }
 
-    public SwimmingClubMember(String name, int age, boolean subscriptionActive, String ageGroup, String exerciseType, String activeDiscipline) {
+    public SwimmingClubMember(String name, int age, boolean subscriptionActive, String ageGroup, String exerciseType, String activeDiscipline, boolean displaySubscriptionFeesAndPaymentStatus) {
         this.name = name;
         this.age = age;
         this.subscriptionActive = subscriptionActive;
         this.ageGroup = ageGroup;
         this.exerciseType = exerciseType;
         this.activeDiscipline = activeDiscipline;
+        this.displaySubscriptionFeesAndPaymentStatus = displaySubscriptionFeesAndPaymentStatus;
     }
 
+
+    public boolean getdisplaySubscriptionFeesAndPaymentStatus() {
+        return displaySubscriptionFeesAndPaymentStatus;
+    }
     public double getSubscriptionFee() {
         return subscriptionFee;
     }

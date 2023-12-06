@@ -122,7 +122,8 @@ public class UserInterface {
                     } while (!validDiscipline);
 
 
-                    controller.addMember(name, age, subscriptionStatus, ageGroup, exerciseType, activeDiscipline);
+                    boolean displaySubscriptionFeesAndPaymentStatus = true;
+                    controller.addMember(name, age, subscriptionStatus, ageGroup, exerciseType, activeDiscipline, displaySubscriptionFeesAndPaymentStatus);
 
                     System.out.println(color.ANSI_GREEN + "Swimming member added" + color.ANSI_RESET);
                     System.out.println("\u2500".repeat(50) + " ");

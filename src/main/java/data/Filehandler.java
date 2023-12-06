@@ -21,36 +21,39 @@ public class Filehandler {
     public SwimmingClubMember parseCSV(String line) {
         try {
             String[] values = line.split(", ");
-            if (values.length==6) {
-                SwimmingClubMember swimmingClubMember = new SwimmingClubMember(values[0], Integer.parseInt(values[1]),Boolean.parseBoolean(values[2]),values[3],values[4],values[5]);
-            return swimmingClubMember;
-            } else {
-                SwimmingClubMember swimmingClubMember = new SwimmingClubMember(values[0], Integer.parseInt(values[1]),Boolean.parseBoolean(values[2]),values[3],values[4],values[5],values[6],values[7],Integer.parseInt(values[8]));
+            if (values.length==7) {
+                SwimmingClubMember swimmingClubMember = new SwimmingClubMember(values[0], Integer.parseInt(values[1]),Boolean.parseBoolean(values[2]),values[3],values[4],values[5], Boolean.parseBoolean(values[6]));
+                return swimmingClubMember;
+            } else{
+                SwimmingClubMember swimmingClubMember = new SwimmingClubMember(values[0], Integer.parseInt(values[1]),Boolean.parseBoolean(values[2]),values[3],values[4],values[5],values[6],values[7],Integer.parseInt(values[8], Boolean.parseBoolean(values[9]));
                 return swimmingClubMember;
             }
         } catch (NumberFormatException e) {
             System.out.println("File not found");
             return null;
         }
+
     }
 
     public void saveMemberData(ArrayList<SwimmingClubMember> members) throws FileNotFoundException {
         PrintStream memberOutput = new PrintStream(new File("members.csv"));
         for (SwimmingClubMember member : members) {
             if (member.getSwimmingResultDateTime()==null) {
-            memberOutput.print(member.getName());
-            memberOutput.print(", ");
-            memberOutput.print(member.getAge());
-            memberOutput.print(", ");
-            memberOutput.print(member.getSubscriptionActive());
-            memberOutput.print(", ");
-            memberOutput.print(member.getAgeGroup());
-            memberOutput.print(", ");
-            memberOutput.print(member.getExerciseType());
-            memberOutput.print(", ");
-            memberOutput.print(member.getActiveDiscipline());
-            memberOutput.println();
-        } else {
+                memberOutput.print(member.getName());
+                memberOutput.print(", ");
+                memberOutput.print(member.getAge());
+                memberOutput.print(", ");
+                memberOutput.print(member.getSubscriptionActive());
+                memberOutput.print(", ");
+                memberOutput.print(member.getAgeGroup());
+                memberOutput.print(", ");
+                memberOutput.print(member.getExerciseType());
+                memberOutput.print(", ");
+                memberOutput.print(member.getActiveDiscipline());
+                memberOutput.println();
+                memberOutput.print(member.getdisplaySubscriptionFeesAndPaymentStatus());
+                memberOutput.println();
+            } else {
                 memberOutput.print(member.getName());
                 memberOutput.print(", ");
                 memberOutput.print(member.getAge());
@@ -69,6 +72,9 @@ public class Filehandler {
                 memberOutput.print(", ");
                 memberOutput.print(member.getPlacement());
                 memberOutput.println();
+                memberOutput.print(member.getdisplaySubscriptionFeesAndPaymentStatus());
+                memberOutput.println();
+
             }
         }
         memberOutput.close();

@@ -13,8 +13,8 @@ public class Database {
     Filehandler filehandler = new Filehandler();
     Color color = new Color();
 
-    public void addMember(String name, int age, boolean subscriptionActive, String ageGroup, String exerciseType, String activeDiscipline) {
-        members.add(new SwimmingClubMember(name, age, subscriptionActive, ageGroup, exerciseType, activeDiscipline));
+    public void addMember(String name, int age, boolean subscriptionActive, String ageGroup, String exerciseType, String activeDiscipline, boolean displaySubscriptionFeesAndPaymentStatus) {
+        members.add(new SwimmingClubMember(name, age, subscriptionActive, ageGroup, exerciseType, activeDiscipline, displaySubscriptionFeesAndPaymentStatus));
     }
 
     public double checkSubscription() {
