@@ -123,8 +123,8 @@ public class UserInterface {
                 }
 
                 case "3", "three" -> {
-                    controller.displaySubscriptionFees();
-                    System.out.println("Total: " + controller.checkSubscription() + ",- DKK");
+                    controller.displaySubscriptionFeesAndPaymentStatus();
+
 
                 }
 

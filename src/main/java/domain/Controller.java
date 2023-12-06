@@ -42,7 +42,9 @@ public class Controller {
         database.splitAndPrintCompetitiveSwimmers(database.getMembers());
     }
 
-    public void displaySubscriptionFees() {
-        database.displaySubscriptionFees();
+    public void displaySubscriptionFeesAndPaymentStatus() {
+        database.displaySubscriptionFeesAndPaymentStatus();
     }
+
+
 }
