@@ -44,4 +44,7 @@ public class Controller {
     public void displaySubscriptionFeesAndPaymentStatus() {
         database.displaySubscriptionFeesAndPaymentStatus();
     }
+    public void sortCrawlMembers() {
+        database.sortCrawlMembers();
+    }
 }

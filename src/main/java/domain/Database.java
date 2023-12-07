@@ -3,6 +3,7 @@ package domain;
 import data.SwimmingClubMember;
 import data.Filehandler;
 import ui.Color;
+
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
@@ -20,10 +21,12 @@ public class Database {
         for (SwimmingClubMember member : members) {
             if (member.getAge() < 18) {
                 yearlyIncome += 1000;
-            } if (member.getAge() >= 18 && member.getAge() < 60) {
+            }
+            if (member.getAge() >= 18 && member.getAge() < 60) {
                 yearlyIncome += 1600;
-            } if (member.getAge() >= 60) {
-                yearlyIncome += 1600*0.75;
+            }
+            if (member.getAge() >= 60) {
+                yearlyIncome += 1600 * 0.75;
             }
         }
         return yearlyIncome;
@@ -147,4 +150,56 @@ public class Database {
 
         System.out.println("Total: " + totalSubscriptionFees + " DKK");
     }
+
+    public ArrayList<SwimmingClubMember> sortBackCrawlMembers() {
+        ArrayList<SwimmingClubMember> backCrawlMembers = new ArrayList<>();
+        for (SwimmingClubMember member : members) {
+            if (member.getExerciseType().equals("competitive")) {
+                backCrawlMembers.add(member);
+            }
+        }
+        return backCrawlMembers;
+    }
+
+    public ArrayList<SwimmingClubMember> sortButterflyMembers() {
+        ArrayList<SwimmingClubMember> butterflyMembers = new ArrayList<>();
+        for (SwimmingClubMember member : members) {
+            if (member.getExerciseType().equals("competitive")) {
+                butterflyMembers.add(member);
+            }
+        }
+        return butterflyMembers;
+    }
+
+    public ArrayList<SwimmingClubMember> sortBreaststrokeMembers() {
+        ArrayList<SwimmingClubMember> breaststrokeMembers = new ArrayList<>();
+        for (SwimmingClubMember member : members) {
+            if (member.getExerciseType().equals("competitive")) {
+                if (member.getActiveDiscipline().equals("breaststroke")) {
+                    breaststrokeMembers.add(member);
+                }
+            }
+        }
+        return breaststrokeMembers;
+    }
+
+    public ArrayList<SwimmingClubMember> sortCrawlMembers() {
+        ArrayList<SwimmingClubMember> crawlMembers = new ArrayList<>();
+        for (SwimmingClubMember member : members) {
+            if (member.getExerciseType().equals("competitive")) {
+                if (member.getActiveDiscipline().equals("crawl")) {
+                    crawlMembers.add(member);
+
+                }
+            }
+        }
+        System.out.println(crawlMembers);
+
+        return crawlMembers;
+    }
+
+
+
+
+
 }
