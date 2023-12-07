@@ -5,14 +5,25 @@ import data.Filehandler;
 import ui.Color;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Database {
     ArrayList<SwimmingClubMember> members = new ArrayList<>();
+    ArrayList<SwimmingClubMember> topFiveTimeCrawl = new ArrayList<>();
+    ArrayList<SwimmingClubMember> topFiveTimeBackCrawl = new ArrayList<>();
+    ArrayList<SwimmingClubMember> topFiveTimeButterfly = new ArrayList<>();
+    ArrayList<SwimmingClubMember> topFiveTimeBreaststroke = new ArrayList<>();
+
     Filehandler filehandler = new Filehandler();
     Color color = new Color();
 
     public void addMember(String name, int age, boolean subscriptionActive, String ageGroup, String exerciseType, String activeDiscipline, boolean displaySubscriptionFeesAndPaymentStatus) {
-        members.add(new SwimmingClubMember(name, age, subscriptionActive, ageGroup, exerciseType, activeDiscipline, displaySubscriptionFeesAndPaymentStatus));
+        if (exerciseType.equalsIgnoreCase("competitive")) {
+            members.add(new SwimmingClubMember(name, age, subscriptionActive, ageGroup, exerciseType, activeDiscipline, displaySubscriptionFeesAndPaymentStatus));
+        } else {
+            members.add(new SwimmingClubMember(name, age, subscriptionActive, ageGroup, exerciseType, "", displaySubscriptionFeesAndPaymentStatus));
+        }
     }
 
     public double checkSubscription() {
@@ -73,7 +84,7 @@ public class Database {
         return findMemberName(memberName);
     }
 
-    public void addSwimmingResult(String name, String swimmingResultDateTime, String event, int placement) {
+    public void addSwimmingResult(String name, String swimmingDate, double swimmingResult, String event, int placement) {
 
         ArrayList<SwimmingClubMember> foundMembers = searchMember(name);
 
@@ -83,6 +94,7 @@ public class Database {
             selectedMember.setSwimmingResultDateTime(swimmingResultDateTime);
             selectedMember.setEvent(event);
             selectedMember.setPlacement(placement);
+
         }
     }
 
@@ -161,7 +173,6 @@ public class Database {
             String statusMessage = newSubscriptionStatus ? "Active" : "Passive";
             System.out.println(color.ANSI_GREEN + "Subscription status updated for " + memberToUpdate.getName() + ": " + statusMessage + color.ANSI_RESET);
         }
-    }
 
 }
 
@@ -211,8 +222,124 @@ public class Database {
 
         return crawlMembers;
     }
+    public ArrayList<SwimmingClubMember> sortByTimeCrawl() {
+        ArrayList<SwimmingClubMember> competitiveMembersCrawl = new ArrayList<>();
+        for (SwimmingClubMember member : members) {
+            if (member.getExerciseType().equals("competitive")) {
+                if (member.getActiveDiscipline().equals("crawl")) {
+                    competitiveMembersCrawl.add(member);
+                }
+            }
+        }
+        Collections.sort(competitiveMembersCrawl, Comparator.comparingDouble(SwimmingClubMember::getSwimmingResult));
+
+        topFiveTimeCrawl.clear();  // Clear the previous top five list
+
+        int numMembers = Math.min(5, competitiveMembersCrawl.size());
+        for (int i = 0; i < numMembers; i++) {
+            topFiveTimeCrawl.add(competitiveMembersCrawl.get(i));
+        }
+        return topFiveTimeCrawl;
+
+    }
+
+    public void printTop5Crawl() {
+        sortByTimeCrawl();
+            if (!topFiveTimeCrawl.isEmpty()) {
+                for (SwimmingClubMember member : topFiveTimeCrawl) {
+                    System.out.println(member + " tid: " + color.ANSI_GREEN +member.getSwimmingResult() + color.ANSI_RESET);
+                }
+            } else {
+                System.out.println(color.ANSI_RED + "There are not enough members in the system yet. \nPress 1 to add a member." + color.ANSI_RESET);
+            }
+        }
+
+    public ArrayList<SwimmingClubMember> sortByTimeBackCrawl() {
+        ArrayList<SwimmingClubMember> competitiveMembersBackCrawl = new ArrayList<>();
+        for (SwimmingClubMember member : members) {
+            if (member.getExerciseType().equals("competitive") && member.getActiveDiscipline().equals("back crawl")) {
+                competitiveMembersBackCrawl.add(member);
+            }
+        }
 
 
+
+        Collections.sort(competitiveMembersBackCrawl, Comparator.comparingDouble(SwimmingClubMember::getSwimmingResult));
+        topFiveTimeCrawl.clear();  // Clear the previous top five list
+
+        int numMembers = Math.min(5, competitiveMembersBackCrawl.size());
+        for (int i = 0; i < numMembers; i++) {
+            topFiveTimeCrawl.add(competitiveMembersBackCrawl.get(i));
+        }
+        return topFiveTimeBackCrawl;
+    }
+
+    public void printTop5BackCrawl() {
+        sortByTimeBackCrawl();
+        if (!topFiveTimeBackCrawl.isEmpty()) {
+            for (SwimmingClubMember member : topFiveTimeBackCrawl) {
+                System.out.println(member + " tid: " + color.ANSI_GREEN +member.getSwimmingResult() + color.ANSI_RESET);
+            }
+        } else {
+            System.out.println(color.ANSI_RED + "There are not enough members in the system yet. \nPress 1 to add a member." + color.ANSI_RESET);
+        }
+    }
+
+
+    public ArrayList<SwimmingClubMember> sortByTimeButterfly() {
+        ArrayList<SwimmingClubMember> competitiveMembersButterfly = new ArrayList<>();
+        for (SwimmingClubMember member : members) {
+            if (member.getExerciseType().equals("competitive") && member.getActiveDiscipline().equals("butterfly")) {
+                competitiveMembersButterfly.add(member);
+            }
+        }
+        Collections.sort(competitiveMembersButterfly, Comparator.comparingDouble(SwimmingClubMember::getSwimmingResult));
+        topFiveTimeCrawl.clear();  // Clear the previous top five list
+
+        int numMembers = Math.min(5, competitiveMembersButterfly.size());
+        for (int i = 0; i < numMembers; i++) {
+            topFiveTimeCrawl.add(competitiveMembersButterfly.get(i));
+        }
+        return topFiveTimeButterfly;
+    }
+    public void printTop5Buttefly() {
+        sortByTimeButterfly();
+        if (!topFiveTimeButterfly.isEmpty()) {
+            for (SwimmingClubMember member : topFiveTimeButterfly) {
+                System.out.println(member + " tid: " + color.ANSI_GREEN + member.getSwimmingResult() + color.ANSI_RESET);
+            }
+        } else {
+            System.out.println(color.ANSI_RED + "There are not enough members in the system yet. \nPress 1 to add a member." + color.ANSI_RESET);
+        }
+
+    }
+    public ArrayList<SwimmingClubMember> sortByTimeBreaststroke() {
+        ArrayList<SwimmingClubMember> competitiveMembersBreaststroke = new ArrayList<>();
+        for (SwimmingClubMember member : members) {
+            if (member.getExerciseType().equals("competitive") && member.getActiveDiscipline().equals("breaststroke")) {
+                competitiveMembersBreaststroke.add(member);
+            }
+        }
+        Collections.sort(competitiveMembersBreaststroke, Comparator.comparingDouble(SwimmingClubMember::getSwimmingResult));
+        topFiveTimeCrawl.clear();  // Clear the previous top five list
+
+        int numMembers = Math.min(5, competitiveMembersBreaststroke.size());
+        for (int i = 0; i < numMembers; i++) {
+            topFiveTimeCrawl.add(competitiveMembersBreaststroke.get(i));
+        }
+        return topFiveTimeBreaststroke;
+    }
+    public void printTop5Breaststroke() {
+        sortByTimeBreaststroke();
+        if (!topFiveTimeBreaststroke.isEmpty()) {
+            for (SwimmingClubMember member : topFiveTimeBreaststroke) {
+                System.out.println(member + " tid: " + color.ANSI_GREEN +member.getSwimmingResult() + color.ANSI_RESET);
+            }
+        } else {
+            System.out.println(color.ANSI_RED + "There are not enough members in the system yet. \nPress 1 to add a member." + color.ANSI_RESET);
+        }
+
+    }
 
 
 

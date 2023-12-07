@@ -6,21 +6,23 @@ public class SwimmingClubMember {
     private boolean subscriptionActive;
     private String ageGroup;
     private String exerciseType;
-    private String swimmingResultDateTime;
+    private double swimmingResult;
     private String activeDiscipline;
     private String event;
     private int placement;
     private double subscriptionFee;
     private boolean displaySubscriptionFeesAndPaymentStatus;
+    private String swimmingDate;
 
-    public SwimmingClubMember(String name, int age, boolean subscriptionActive, String ageGroup, String exerciseType, String activeDiscipline, String swimmingResultDateTime, String event, int placement, boolean displaySubscriptionFeesAndPaymentStatus) {
+    public SwimmingClubMember(String name, int age, boolean subscriptionActive, String ageGroup, String exerciseType, String activeDiscipline, String swimmingDate, double swimmingResult, String event, int placement, boolean displaySubscriptionFeesAndPaymentStatus) {
         this.name = name;
         this.age = age;
         this.subscriptionActive = subscriptionActive;
         this.ageGroup = ageGroup;
         this.exerciseType = exerciseType;
         this.activeDiscipline = activeDiscipline;
-        this.swimmingResultDateTime = null;
+        this.swimmingResult = swimmingResult;
+        this.swimmingDate = swimmingDate;
         this.event = "";
         this.placement = 0;
         this.displaySubscriptionFeesAndPaymentStatus = displaySubscriptionFeesAndPaymentStatus;
@@ -64,12 +66,12 @@ public class SwimmingClubMember {
         return activeDiscipline;
     }
 
-    public String getSwimmingResultDateTime() {
-        return swimmingResultDateTime;
+    public double getSwimmingResult() {
+        return swimmingResult;
     }
 
-    public void setSwimmingResultDateTime(String swimmingResultDateTime) {
-        this.swimmingResultDateTime = swimmingResultDateTime;
+    public void setSwimmingResult(double swimmingResult) {
+        this.swimmingResult = swimmingResult;
     }
 
     public String getEvent() {
@@ -91,6 +93,7 @@ public class SwimmingClubMember {
     public Boolean getSubscriptionActive() {
         return subscriptionActive;
     }
+
     public void setSubscriptionActive(boolean newSubscriptionStatus) {
         this.subscriptionActive = newSubscriptionStatus;
         this.displaySubscriptionFeesAndPaymentStatus = newSubscriptionStatus;
@@ -104,5 +107,10 @@ public class SwimmingClubMember {
                 ", exercise type: " + exerciseType +
                 ", active discipline: " + activeDiscipline +
                 ", Paid: " + displaySubscriptionFeesAndPaymentStatus;
-        }
+    }
+
+
+    public void setSwimmingDate(String swimmingDate) {
+        this.swimmingDate=swimmingDate;
+    }
 }

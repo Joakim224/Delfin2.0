@@ -1,25 +1,25 @@
-Markus, 22, true, Senior, competitive, crawl, 2001-01-02 2:25, competitive, 1, true
-Joakim, 22, true, Senior, competitive, back crawl, 2002-02-05 2:30, competitive, 1, true
-August 21, 21, true, Senior, competitive, butterfly, 2003-04-07 6:45, competitive, 8, true
-Christian, 17, true, Junior, competitive, breaststroke, 2006-09-12 2:54, competitive, 1, true
-lukas, 18, true, Senior, competitive, crawl, 2010-10-02 2:50, competitive, 2, true
-Tobias, 15, true, Junior, competitive, back crawl, 2007-12-03 3:55, competititve, 4, true
-sofus, 34, true, Senior, competitive, butterfly, 1998-08-19 2:30, competitive, 1, true
-kevin, 32, true, Senior, competitive, breaststroke, 1995-04-15 4:45, competitive, 2, true
-Gustav, 27, true, Senior, competitive, crawl, 2021-05-15 4:45, competitive, 3, true
-Jonas, 42, true, Senior, competitive, back crawl, 2002-04-05 4:20, competitive, 2, true
-frederik, 16, true, Junior, competitive, butterfly, 2019-05-14 5:15, competitive, 4, true
-keld, 17, true, Junior, competitive, breaststroke, 2006-05-23 4:32, competitive, 6, true
-oliver, 23, true, Senior, competitive, crawl, 2006-06-23 3:21, competitive, 3, true
-marcus, 15, true, Junior, competitive, back crawl, 2003-08-24 3:30, competitive, 1, true
-william, 34, true, Senior, competitive, butterfly, 1995-04-12 2:32, competitive, 2, true
-Oscar, 30, true, Senior, competitive, breaststroke, 1997-06-27 1:55, competitive, 1, true
-Carl, 38, true, Senior, competitive, crawl, 2005-08-25 4:10, competitive, 4, true
-Emil, 17, true, Junior, competitive, back crawl, 2004-12-3 4:25, competitive, 6, true
-aksel, 19, true, Senior, competitive, butterfly, 2005-03-14 2:36, competitive, 2, true
-noah, 23, true, Senior, competitive, breaststroke, 2002-04-12 2:23, competitive, 1, true
-malthe, 16, true, Junior, competitive, crawl, 2006-03-15 2:21, competitive, 1, true
+Markus, 22, true, Senior, competitive, crawl, 2001-01-02, 2.25, competitive, 1, true
+Joakim, 22, true, Senior, competitive, back crawl, 2002-02-05, 2.30, competitive, 1, true
+August 21, 21, true, Senior, competitive, butterfly, 2003-04-07, 6.45, competitive, 8, true
+Christian, 17, true, Junior, competitive, breaststroke, 2006-09-12, 2.54, competitive, 1, true
+lukas, 18, true, Senior, competitive, crawl, 2010-10-02, 2.50, competitive, 2, true
+Tobias, 15, true, Junior, competitive, back crawl, 2007-12-03, 3.55, competititve, 4, true
+sofus, 34, true, Senior, competitive, butterfly, 1998-08-19, 2.30, competitive, 1, true
+kevin, 32, true, Senior, competitive, breaststroke, 1995-04-15, 4.45, competitive, 2, true
+Gustav, 27, true, Senior, competitive, crawl, 2021-05-15, 4.45, competitive, 3, true
+Jonas, 42, true, Senior, competitive, back crawl, 2002-04-05, 4.20, competitive, 2, true
+frederik, 16, true, Junior, competitive, butterfly, 2019-05-14, 5.15, competitive, 4, true
+keld, 17, true, Junior, competitive, breaststroke, 2006-05-23, 4.32, competitive, 6, true
+oliver, 23, true, Senior, competitive, crawl, 2006-06-23, 3.21, competitive, 3, true
+marcus, 15, true, Junior, competitive, back crawl, 2003-08-24, 3.30, competitive, 1, true
+william, 34, true, Senior, competitive, butterfly, 1995-04-12, 2.32, competitive, 2, true
+Oscar, 30, true, Senior, competitive, breaststroke, 1997-06-27, 1.55, competitive, 1, true
+Carl, 38, true, Senior, competitive, crawl, 2005-08-25, 4.10, competitive, 4, true
+Emil, 17, true, Junior, competitive, back crawl, 2004-12-3, 4.25, competitive, 6, true
+aksel, 19, true, Senior, competitive, butterfly, 2005-03-14, 2.36, competitive, 2, true
+noah, 23, true, Senior, competitive, breaststroke, 2002-04-12, 2.23, competitive, 1, true
+malthe, 16, true, Junior, competitive, crawl, 2006-03-15, 2.21, competitive, 1, true
 theo, 42, true, Senior, competitive, back crawl, true
-Victor, 20, true, Senior, competitive, butterfly, 1999-05-23 4:10, competitive, 4, true
-max, 18, true, Senior, competitive, breaststroke, 2004-01-12 3:23, competitive, 3, true
-Adam, 23, true, Senior, competitive, crawl, 2000-05-23 4:45, competitive, 5, true
+Victor, 20, true, Senior, competitive, butterfly, 1999-05-23, 4.10, competitive, 4, true
+max, 18, true, Senior, competitive, breaststroke, 2004-01-12, 3.23, competitive, 3, true
+Adam, 23, true, Senior, competitive, crawl, 2000-05-23, 4.45, competitive, 5, true

@@ -21,23 +21,25 @@ public class Filehandler {
     public SwimmingClubMember parseCSV(String line) {
         try {
             String[] values = line.split(", ");
-            if (values.length==7) {
+            if (values.length == 7) {
                 SwimmingClubMember swimmingClubMember = new SwimmingClubMember(values[0], Integer.parseInt(values[1]), Boolean.parseBoolean(values[2]), values[3], values[4], values[5], Boolean.parseBoolean(values[6]));
                 return swimmingClubMember;
             } else {
-                SwimmingClubMember swimmingClubMember = new SwimmingClubMember(values[0], Integer.parseInt(values[1]), Boolean.parseBoolean(values[2]), values[3], values[4], values[5], values[6], values[7], Integer.parseInt(values[8]), Boolean.parseBoolean(values[9]));
+                SwimmingClubMember swimmingClubMember = new SwimmingClubMember(values[0], Integer.parseInt(values[1]), Boolean.parseBoolean(values[2]), values[3], values[4], values[5], values[6], Double.parseDouble(values[7]), values[8], Integer.parseInt(values[9]), Boolean.parseBoolean(values[10]));
                 return swimmingClubMember;
             }
+
         } catch (NumberFormatException e) {
             System.out.println("File not found");
             return null;
         }
+
     }
 
     public void saveMemberData(ArrayList<SwimmingClubMember> members) throws FileNotFoundException {
         PrintStream memberOutput = new PrintStream(new File("members.csv"));
         for (SwimmingClubMember member : members) {
-            if (member.getSwimmingResultDateTime() == null) {
+            if (member.getSwimmingResult() == 0) {
                 memberOutput.print(member.getName());
                 memberOutput.print(", ");
                 memberOutput.print(member.getAge());
@@ -65,7 +67,9 @@ public class Filehandler {
                 memberOutput.print(", ");
                 memberOutput.print(member.getActiveDiscipline());
                 memberOutput.print(", ");
-                memberOutput.print(member.getSwimmingResultDateTime());
+                memberOutput.print(member.getSwimmingDate());
+                memberOutput.print(", ");
+                memberOutput.print(member.getSwimmingResult());
                 memberOutput.print(", ");
                 memberOutput.print(member.getEvent());
                 memberOutput.print(", ");

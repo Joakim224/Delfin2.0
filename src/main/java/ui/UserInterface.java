@@ -32,7 +32,9 @@ public class UserInterface {
         boolean run = true;
         String input;
         controller.loadData();
+
         do {
+
             welcomeMessage();
             System.out.print("Input: ");
             input = scanner.nextLine().trim().toLowerCase();
@@ -152,8 +154,9 @@ public class UserInterface {
                         System.out.print("Input the swimming result time (HH:mm): ");
                         String timeString = scanner.nextLine();
 
-                        String dateTimeString = dateString + " " + timeString;
-                        String swimmingResultDateTime = dateTimeString;
+                        double result = convertToDouble(timeString);
+
+                        double swimmingResult = result;
 
                         System.out.print("Input the event (if competitive, otherwise leave empty): ");
                         String event = scanner.nextLine();
@@ -165,7 +168,7 @@ public class UserInterface {
                             scanner.nextLine();
                         }
 
-                        controller.addSwimmingResult(selectedMember.getName(), swimmingResultDateTime, event, placement);
+                        controller.addSwimmingResult(selectedMember.getName(),dateString, swimmingResult, event, placement);
                         System.out.println(color.ANSI_GREEN + "Swimming result added for " + selectedMember.getName() + color.ANSI_RESET);
                         System.out.println("\u2500".repeat(50) + " ");
                     }
@@ -195,6 +198,40 @@ public class UserInterface {
                     System.out.println("\u2500".repeat(50) + " ");
 
                 }
+                case "7", "seven" -> {
+                    System.out.println("Select the discipline you want to see top 5 times from:");
+                    System.out.println(
+                            "\u2500".repeat(50) + "\n" +
+                                    "Interact with the menu by inputting the corresponding number\n" +
+                                    "(1) Crawl\n" +
+                                    "(2) Backcrawl\n" +
+                                    "(3) Butterfly\n" +
+                                    "(4) Breaststroke\n" +
+                                    "\u2500".repeat(50));
+
+                    // Use a different variable for the nested switch
+                    String disciplineCommand = scanner.nextLine().trim().toLowerCase();
+
+                    switch (disciplineCommand) {
+                        case "1", "one" -> {
+                            controller.printTop5Crawl();
+                        }
+                        case "2", "two" -> {
+                            controller.printTop5BackCrawl();
+                        }
+                        case "3", "three" -> {
+                            controller.printTop5Butterfly();
+                        }
+                        case "4", "four" -> {
+                            controller.printTop5Breaststroke();
+                        }
+                        default -> {
+                            System.out.println(color.ANSI_RED + "Wrong input, try again." + color.ANSI_RESET);
+                        }
+                    }
+
+
+                }
 
                 case "9", "nine" -> {
                     controller.saveData();
@@ -203,5 +240,13 @@ public class UserInterface {
 
             }
         } while (run);
+    }
+    private static double convertToDouble(String timeString) {
+        String[] parts = timeString.split(":");
+        int minutes = Integer.parseInt(parts[0]);
+        int seconds = Integer.parseInt(parts[1]);
+
+        double result = minutes + (seconds / 60.0);
+        return result;
     }
 }

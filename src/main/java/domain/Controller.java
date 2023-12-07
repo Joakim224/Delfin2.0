@@ -33,8 +33,8 @@ public class Controller {
         return database.searchMember(memberName);
     }
 
-    public void addSwimmingResult(String name, String swimmingResultDateTime, String event, int placement) {
-        database.addSwimmingResult(name, swimmingResultDateTime, event, placement);
+    public void addSwimmingResult(String name, String dateString, double swimmingResult, String event, int placement) {
+        database.addSwimmingResult(name,dateString, swimmingResult, event, placement);
     }
 
     public void competitiveSwimmersSplit() {
@@ -48,7 +48,20 @@ public class Controller {
     public void updateSubscriptionStatus(String memberName, boolean newSubscriptionStatus) {
         database.updateSubscriptionStatus(memberName, newSubscriptionStatus);
     }
-    public void sortCrawlMembers() {
-        database.sortCrawlMembers();
+
+    public void printTop5Crawl() {
+        database.printTop5Crawl();
+    }
+
+    public void printTop5BackCrawl() {
+        database.printTop5BackCrawl();
+    }
+
+    public void printTop5Butterfly() {
+        database.printTop5Buttefly();
+    }
+
+    public void printTop5Breaststroke() {
+        database.printTop5Breaststroke();
     }
 }
