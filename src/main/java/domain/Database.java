@@ -3,7 +3,6 @@ package domain;
 import data.SwimmingClubMember;
 import data.Filehandler;
 import ui.Color;
-
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
@@ -150,6 +149,21 @@ public class Database {
 
         System.out.println("Total: " + totalSubscriptionFees + " DKK");
     }
+    public void updateSubscriptionStatus(String memberName, boolean newSubscriptionStatus) {
+        ArrayList<SwimmingClubMember> foundMembersToUpdate = searchMember(memberName);
+
+        if (foundMembersToUpdate.isEmpty()) {
+            System.out.println(color.ANSI_RED + "Member not found. Please make sure the name is correct." + color.ANSI_RESET);
+        } else {
+            SwimmingClubMember memberToUpdate = foundMembersToUpdate.get(0);
+            memberToUpdate.setSubscriptionActive(newSubscriptionStatus);
+
+            String statusMessage = newSubscriptionStatus ? "Active" : "Passive";
+            System.out.println(color.ANSI_GREEN + "Subscription status updated for " + memberToUpdate.getName() + ": " + statusMessage + color.ANSI_RESET);
+        }
+    }
+
+}
 
     public ArrayList<SwimmingClubMember> sortBackCrawlMembers() {
         ArrayList<SwimmingClubMember> backCrawlMembers = new ArrayList<>();
