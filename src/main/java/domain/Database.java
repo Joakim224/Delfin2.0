@@ -90,8 +90,8 @@ public class Database {
 
         if (!foundMembers.isEmpty()) {
             SwimmingClubMember selectedMember = foundMembers.get(0);
-
-            selectedMember.setSwimmingResultDateTime(swimmingResultDateTime);
+            selectedMember.setSwimmingDate(swimmingDate);
+            selectedMember.setSwimmingResult(swimmingResult);
             selectedMember.setEvent(event);
             selectedMember.setPlacement(placement);
 

@@ -74,6 +74,11 @@ public class SwimmingClubMember {
         this.swimmingResult = swimmingResult;
     }
 
+    public String getSwimmingDate() {
+        return swimmingDate;
+    }
+
+
     public String getEvent() {
         return event;
     }
