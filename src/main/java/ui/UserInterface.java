@@ -21,8 +21,8 @@ public class UserInterface {
                         "(3) Print revenue\n" +
                         "(4) Swimming Result\n" +
                         "(5) Order competitive swimmers by age and discipline\n" +
-                        "(6) Update Subsribtion status\n" +
-                        "(7)\n" +
+                        "(6) Update Subscription status\n" +
+                        "(7) Print out top 5 fastest members of each discipline\n" +
                         "(8)\n" +
                         "(9) EXIT\n" + "\u2500".repeat(50)
                 );
@@ -238,6 +238,9 @@ public class UserInterface {
                     System.exit(0);
                 }
 
+                default -> {
+                    System.out.println(color.ANSI_RED + "Wrong input, try again." + color.ANSI_RESET);
+                }
             }
         } while (run);
     }
