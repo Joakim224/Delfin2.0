@@ -21,7 +21,7 @@ public class UserInterface {
                         "(3) Print revenue\n" +
                         "(4) Swimming Result\n" +
                         "(5) Order competitive swimmers by age and discipline\n" +
-                        "(6)\n" +
+                        "(6) Update Subsribtion status\n" +
                         "(7)\n" +
                         "(8)\n" +
                         "(9) EXIT\n" + "\u2500".repeat(50)
@@ -173,6 +173,27 @@ public class UserInterface {
 
                 case "5", "five" -> {
                     controller.competitiveSwimmersSplit();
+                }
+
+                case "6", "six" -> {
+                    System.out.println("Update Subscription Status:");
+                    System.out.print("Input the member's name: ");
+                    String memberNameToUpdate = scanner.nextLine();
+
+                    System.out.print("Input the new subscription status ('active' or 'passive'): ");
+                    String newSubscriptionStatusString = scanner.nextLine().trim().toLowerCase();
+
+                    boolean isValidStatus = newSubscriptionStatusString.equals("active") || newSubscriptionStatusString.equals("passive");
+
+                    if (isValidStatus) {
+                        boolean newSubscriptionStatus = newSubscriptionStatusString.equals("active");
+                        controller.updateSubscriptionStatus(memberNameToUpdate, newSubscriptionStatus);
+                    } else {
+                        System.out.println(color.ANSI_RED + "Invalid input. Subscription status remains unchanged." + color.ANSI_RESET);
+                    }
+
+                    System.out.println("\u2500".repeat(50) + " ");
+
                 }
 
                 case "9", "nine" -> {

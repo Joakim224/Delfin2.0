@@ -91,6 +91,10 @@ public class SwimmingClubMember {
     public Boolean getSubscriptionActive() {
         return subscriptionActive;
     }
+    public void setSubscriptionActive(boolean newSubscriptionStatus) {
+        this.subscriptionActive = newSubscriptionStatus;
+        this.displaySubscriptionFeesAndPaymentStatus = newSubscriptionStatus;
+    }
 
     public String toString() {
         return "Member: " + name +
@@ -98,6 +102,7 @@ public class SwimmingClubMember {
                 ", active subscription: " + subscriptionActive +
                 ", age group: " + ageGroup +
                 ", exercise type: " + exerciseType +
-                ", active discipline: " + activeDiscipline;
+                ", active discipline: " + activeDiscipline +
+                ", Paid: " + displaySubscriptionFeesAndPaymentStatus;
         }
 }
