@@ -176,52 +176,10 @@ public class Database {
 
 }
 
-    public ArrayList<SwimmingClubMember> sortBackCrawlMembers() {
-        ArrayList<SwimmingClubMember> backCrawlMembers = new ArrayList<>();
-        for (SwimmingClubMember member : members) {
-            if (member.getExerciseType().equals("competitive")) {
-                backCrawlMembers.add(member);
-            }
-        }
-        return backCrawlMembers;
-    }
 
-    public ArrayList<SwimmingClubMember> sortButterflyMembers() {
-        ArrayList<SwimmingClubMember> butterflyMembers = new ArrayList<>();
-        for (SwimmingClubMember member : members) {
-            if (member.getExerciseType().equals("competitive")) {
-                butterflyMembers.add(member);
-            }
-        }
-        return butterflyMembers;
-    }
 
-    public ArrayList<SwimmingClubMember> sortBreaststrokeMembers() {
-        ArrayList<SwimmingClubMember> breaststrokeMembers = new ArrayList<>();
-        for (SwimmingClubMember member : members) {
-            if (member.getExerciseType().equals("competitive")) {
-                if (member.getActiveDiscipline().equals("breaststroke")) {
-                    breaststrokeMembers.add(member);
-                }
-            }
-        }
-        return breaststrokeMembers;
-    }
 
-    public ArrayList<SwimmingClubMember> sortCrawlMembers() {
-        ArrayList<SwimmingClubMember> crawlMembers = new ArrayList<>();
-        for (SwimmingClubMember member : members) {
-            if (member.getExerciseType().equals("competitive")) {
-                if (member.getActiveDiscipline().equals("crawl")) {
-                    crawlMembers.add(member);
 
-                }
-            }
-        }
-        System.out.println(crawlMembers);
-
-        return crawlMembers;
-    }
     public ArrayList<SwimmingClubMember> sortByTimeCrawl() {
         ArrayList<SwimmingClubMember> competitiveMembersCrawl = new ArrayList<>();
         for (SwimmingClubMember member : members) {
@@ -233,7 +191,7 @@ public class Database {
         }
         Collections.sort(competitiveMembersCrawl, Comparator.comparingDouble(SwimmingClubMember::getSwimmingResult));
 
-        topFiveTimeCrawl.clear();  // Clear the previous top five list
+        topFiveTimeCrawl.clear();
 
         int numMembers = Math.min(5, competitiveMembersCrawl.size());
         for (int i = 0; i < numMembers; i++) {
@@ -262,14 +220,12 @@ public class Database {
             }
         }
 
-
-
         Collections.sort(competitiveMembersBackCrawl, Comparator.comparingDouble(SwimmingClubMember::getSwimmingResult));
-        topFiveTimeCrawl.clear();  // Clear the previous top five list
+        topFiveTimeBackCrawl.clear();
 
         int numMembers = Math.min(5, competitiveMembersBackCrawl.size());
         for (int i = 0; i < numMembers; i++) {
-            topFiveTimeCrawl.add(competitiveMembersBackCrawl.get(i));
+            topFiveTimeBackCrawl.add(competitiveMembersBackCrawl.get(i));
         }
         return topFiveTimeBackCrawl;
     }
@@ -293,12 +249,14 @@ public class Database {
                 competitiveMembersButterfly.add(member);
             }
         }
+
         Collections.sort(competitiveMembersButterfly, Comparator.comparingDouble(SwimmingClubMember::getSwimmingResult));
-        topFiveTimeCrawl.clear();  // Clear the previous top five list
+
+        topFiveTimeButterfly.clear();
 
         int numMembers = Math.min(5, competitiveMembersButterfly.size());
         for (int i = 0; i < numMembers; i++) {
-            topFiveTimeCrawl.add(competitiveMembersButterfly.get(i));
+            topFiveTimeButterfly.add(competitiveMembersButterfly.get(i));
         }
         return topFiveTimeButterfly;
     }
@@ -320,12 +278,15 @@ public class Database {
                 competitiveMembersBreaststroke.add(member);
             }
         }
+
         Collections.sort(competitiveMembersBreaststroke, Comparator.comparingDouble(SwimmingClubMember::getSwimmingResult));
-        topFiveTimeCrawl.clear();  // Clear the previous top five list
+
+
+        topFiveTimeBreaststroke.clear();
 
         int numMembers = Math.min(5, competitiveMembersBreaststroke.size());
         for (int i = 0; i < numMembers; i++) {
-            topFiveTimeCrawl.add(competitiveMembersBreaststroke.get(i));
+            topFiveTimeBreaststroke.add(competitiveMembersBreaststroke.get(i));
         }
         return topFiveTimeBreaststroke;
     }
