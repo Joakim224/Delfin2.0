@@ -20,9 +20,11 @@ public class Database {
 
     public void addMember(String name, int age, boolean subscriptionActive, String ageGroup, String exerciseType, String activeDiscipline, boolean displaySubscriptionFeesAndPaymentStatus) {
         if (exerciseType.equalsIgnoreCase("competitive")) {
-            members.add(new SwimmingClubMember(name, age, subscriptionActive, ageGroup, exerciseType, activeDiscipline, displaySubscriptionFeesAndPaymentStatus));
+            SwimmingClubMember member = new SwimmingClubMember(name, age, subscriptionActive, ageGroup, exerciseType, activeDiscipline, false);
+            members.add(member);
         } else {
-            members.add(new SwimmingClubMember(name, age, subscriptionActive, ageGroup, exerciseType, "", displaySubscriptionFeesAndPaymentStatus));
+            SwimmingClubMember member = new SwimmingClubMember(name, age, subscriptionActive, ageGroup, exerciseType, "", false);
+            members.add(member);
         }
     }
 
@@ -45,12 +47,16 @@ public class Database {
     public double calculateSubscriptionFee(SwimmingClubMember member) {
         double fee;
 
-        if (member.getAge() < 18) {
-            fee = 1000;
-        } else if (member.getAge() >= 18 && member.getAge() < 60) {
-            fee = 1600;
+        if (member.getSubscriptionActive()) {
+            if (member.getAge() < 18) {
+                fee = 1000;
+            } else if (member.getAge() >= 18 && member.getAge() < 60) {
+                fee = 1600;
+            } else {
+                fee = 1600 * 0.75;
+            }
         } else {
-            fee = 1600 * 0.75;
+            fee = 500;
         }
 
         return fee;
@@ -147,6 +153,18 @@ public class Database {
         }
     }
 
+    public void updatePaymentStatus(String memberName, boolean newPaymentStatus) {
+        ArrayList<SwimmingClubMember> foundMembersToUpdate = findMemberName(memberName);
+
+        if (!foundMembersToUpdate.isEmpty()) {
+            SwimmingClubMember memberToUpdate = foundMembersToUpdate.get(0);
+            memberToUpdate.setPaymentStatus(newPaymentStatus);
+            System.out.println("Payment status updated for " + memberToUpdate.getName() + ": " + (newPaymentStatus ? "Paid" : "Not Paid"));
+        } else {
+            System.out.println("Member not found. Please make sure the name is correct.");
+        }
+    }
+
     public void displaySubscriptionFeesAndPaymentStatus() {
         System.out.println("Subscription Fees and Payment Status:");
 
@@ -155,29 +173,12 @@ public class Database {
         for (SwimmingClubMember member : members) {
             double memberFee = calculateSubscriptionFee(member);
             totalSubscriptionFees += memberFee;
-            String paymentStatus = member.getSubscriptionActive() ? "Paid" : "Not Paid";
+            String paymentStatus = member.getPaymentStatus() ? "Paid" : "Not Paid";
             System.out.println(member.getName() + ": " + memberFee + " DKK - Payment Status: " + paymentStatus);
         }
 
         System.out.println("Total: " + totalSubscriptionFees + " DKK");
     }
-    public void updateSubscriptionStatus(String memberName, boolean newSubscriptionStatus) {
-        ArrayList<SwimmingClubMember> foundMembersToUpdate = searchMember(memberName);
-
-        if (foundMembersToUpdate.isEmpty()) {
-            System.out.println(color.ANSI_RED + "Member not found. Please make sure the name is correct." + color.ANSI_RESET);
-        } else {
-            SwimmingClubMember memberToUpdate = foundMembersToUpdate.get(0);
-            memberToUpdate.setSubscriptionActive(newSubscriptionStatus);
-
-            String statusMessage = newSubscriptionStatus ? "Active" : "Passive";
-            System.out.println(color.ANSI_GREEN + "Subscription status updated for " + memberToUpdate.getName() + ": " + statusMessage + color.ANSI_RESET);
-        }
-
-}
-
-
-
 
 
     public ArrayList<SwimmingClubMember> sortByTimeCrawl() {
@@ -300,7 +301,11 @@ public class Database {
             System.out.println(color.ANSI_RED + "There are not enough members in the system yet. \nPress 1 to add a member." + color.ANSI_RESET);
         }
 
+
+
     }
+
+
 
 
 

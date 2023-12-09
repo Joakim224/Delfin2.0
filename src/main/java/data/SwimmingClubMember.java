@@ -13,6 +13,7 @@ public class SwimmingClubMember {
     private double subscriptionFee;
     private boolean displaySubscriptionFeesAndPaymentStatus;
     private String swimmingDate;
+    private boolean paymentStatus;
 
     public SwimmingClubMember(String name, int age, boolean subscriptionActive, String ageGroup, String exerciseType, String activeDiscipline, String swimmingDate, double swimmingResult, String event, int placement, boolean displaySubscriptionFeesAndPaymentStatus) {
         this.name = name;
@@ -36,15 +37,21 @@ public class SwimmingClubMember {
         this.exerciseType = exerciseType;
         this.activeDiscipline = activeDiscipline;
         this.displaySubscriptionFeesAndPaymentStatus = displaySubscriptionFeesAndPaymentStatus;
+        this.paymentStatus = false;
     }
 
+
+    public void setPaymentStatus(boolean paymentStatus) {
+        this.paymentStatus = paymentStatus;
+    }
+
+    public boolean getPaymentStatus() {
+        return paymentStatus;
+    }
     public boolean getdisplaySubscriptionFeesAndPaymentStatus() {
         return displaySubscriptionFeesAndPaymentStatus;
     }
 
-    public double getSubscriptionFee() {
-        return subscriptionFee;
-    }
 
     public String getName() {
         return name;
@@ -99,10 +106,7 @@ public class SwimmingClubMember {
         return subscriptionActive;
     }
 
-    public void setSubscriptionActive(boolean newSubscriptionStatus) {
-        this.subscriptionActive = newSubscriptionStatus;
-        this.displaySubscriptionFeesAndPaymentStatus = newSubscriptionStatus;
-    }
+
 
     public String toString() {
         return "Member: " + name +
@@ -111,7 +115,7 @@ public class SwimmingClubMember {
                 ", age group: " + ageGroup +
                 ", exercise type: " + exerciseType +
                 ", active discipline: " + activeDiscipline +
-                ", Paid: " + displaySubscriptionFeesAndPaymentStatus;
+                ", Paid: " + paymentStatus;
     }
 
 

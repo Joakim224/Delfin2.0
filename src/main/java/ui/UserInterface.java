@@ -21,7 +21,7 @@ public class UserInterface {
                         "(3) Print revenue\n" +
                         "(4) Swimming Result\n" +
                         "(5) Order competitive swimmers by age and discipline\n" +
-                        "(6) Update Subscription status\n" +
+                        "(6) Update Payment status\n" +
                         "(7) Print out top 5 fastest members of each discipline\n" +
                         "(8)\n" +
                         "(9) EXIT\n" + "\u2500".repeat(50)
@@ -151,7 +151,7 @@ public class UserInterface {
                         System.out.print("Input the swimming result date (yyyy-MM-dd): ");
                         String dateString = scanner.nextLine();
 
-                        System.out.print("Input the swimming result time (HH:mm): ");
+                        System.out.print("Input the swimming result time (mm:ss): ");
                         String timeString = scanner.nextLine();
 
                         double result = convertToDouble(timeString);
@@ -179,24 +179,29 @@ public class UserInterface {
                 }
 
                 case "6", "six" -> {
-                    System.out.println("Update Subscription Status:");
+                    System.out.println("Update Payment Status:");
                     System.out.print("Input the member's name: ");
                     String memberNameToUpdate = scanner.nextLine();
 
-                    System.out.print("Input the new subscription status ('active' or 'passive'): ");
-                    String newSubscriptionStatusString = scanner.nextLine().trim().toLowerCase();
+                    boolean isValidStatus = false;
+                    boolean newPaymentStatus = false;
 
-                    boolean isValidStatus = newSubscriptionStatusString.equals("active") || newSubscriptionStatusString.equals("passive");
+                    while (!isValidStatus) {
+                        System.out.print("Input if they have paid ('Paid' or 'Not paid'): ");
+                        String newPaymentStatusString = scanner.nextLine().trim().toLowerCase();
 
-                    if (isValidStatus) {
-                        boolean newSubscriptionStatus = newSubscriptionStatusString.equals("active");
-                        controller.updateSubscriptionStatus(memberNameToUpdate, newSubscriptionStatus);
-                    } else {
-                        System.out.println(color.ANSI_RED + "Invalid input. Subscription status remains unchanged." + color.ANSI_RESET);
+                        isValidStatus = newPaymentStatusString.equals("paid") || newPaymentStatusString.equals("not paid");
+
+                        if (isValidStatus) {
+                            newPaymentStatus = newPaymentStatusString.equals("paid");
+                        } else {
+                            System.out.println(color.ANSI_RED + "Invalid input. Please enter 'Paid' or 'Not paid'." + color.ANSI_RESET);
+                        }
                     }
 
-                    System.out.println("\u2500".repeat(50) + " ");
+                    controller.updatePaymentStatus(memberNameToUpdate, newPaymentStatus);
 
+                    System.out.println("\u2500".repeat(50) + " ");
                 }
                 case "7", "seven" -> {
                     System.out.println("Select the discipline you want to see top 5 times from:");

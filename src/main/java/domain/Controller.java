@@ -45,8 +45,9 @@ public class Controller {
         database.displaySubscriptionFeesAndPaymentStatus();
     }
 
-    public void updateSubscriptionStatus(String memberName, boolean newSubscriptionStatus) {
-        database.updateSubscriptionStatus(memberName, newSubscriptionStatus);
+
+    public void updatePaymentStatus(String memberName, boolean newPaymentStatus) {
+        database.updatePaymentStatus(memberName, newPaymentStatus);
     }
 
     public void printTop5Crawl() {
