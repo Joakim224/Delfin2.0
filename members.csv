@@ -1,25 +1,40 @@
-Markus, 22, true, Senior, competitive, crawl, 2001-01-02, 2.25, competitive, 1, true
-Joakim, 22, true, Senior, competitive, back crawl, 2002-02-05, 2.30, competitive, 1, true
-August 21, 21, true, Senior, competitive, butterfly, 2003-04-07, 6.45, competitive, 8, true
-Christian, 17, true, Junior, competitive, breaststroke, 2006-09-12, 2.54, competitive, 1, true
-lukas, 18, true, Senior, competitive, crawl, 2010-10-02, 2.50, competitive, 2, true
-Tobias, 15, true, Junior, competitive, back crawl, 2007-12-03, 3.55, competititve, 4, true
-sofus, 34, true, Senior, competitive, butterfly, 1998-08-19, 2.30, competitive, 1, true
-kevin, 32, true, Senior, competitive, breaststroke, 1995-04-15, 4.45, competitive, 2, true
-Gustav, 27, true, Senior, competitive, crawl, 2021-05-15, 4.45, competitive, 3, true
-Jonas, 42, true, Senior, competitive, back crawl, 2002-04-05, 4.20, competitive, 2, true
-frederik, 16, true, Junior, competitive, butterfly, 2019-05-14, 5.15, competitive, 4, true
-keld, 17, true, Junior, competitive, breaststroke, 2006-05-23, 4.32, competitive, 6, true
-oliver, 23, true, Senior, competitive, crawl, 2006-06-23, 3.21, competitive, 3, true
-marcus, 15, true, Junior, competitive, back crawl, 2003-08-24, 3.30, competitive, 1, true
-william, 34, true, Senior, competitive, butterfly, 1995-04-12, 2.32, competitive, 2, true
-Oscar, 30, true, Senior, competitive, breaststroke, 1997-06-27, 1.55, competitive, 1, true
-Carl, 38, true, Senior, competitive, crawl, 2005-08-25, 4.10, competitive, 4, true
-Emil, 17, true, Junior, competitive, back crawl, 2004-12-3, 4.25, competitive, 6, true
-aksel, 19, true, Senior, competitive, butterfly, 2005-03-14, 2.36, competitive, 2, true
-noah, 23, true, Senior, competitive, breaststroke, 2002-04-12, 2.23, competitive, 1, true
-malthe, 16, true, Junior, competitive, crawl, 2006-03-15, 2.21, competitive, 1, true
-theo, 42, true, Senior, competitive, back crawl, true
-Victor, 20, true, Senior, competitive, butterfly, 1999-05-23, 4.10, competitive, 4, true
-max, 18, true, Senior, competitive, breaststroke, 2004-01-12, 3.23, competitive, 3, true
-Adam, 23, true, Senior, competitive, crawl, 2000-05-23, 4.45, competitive, 5, true
+markus, 22, true, Senior, competitive, crawl, 2023-12-10, 2.5, , 0, false
+Joakim, 22, true, Senior, competitive, crawl, 2002-02-05, 2.5833333333333335, , 0, false
+August, 21, true, Senior, competitive, crawl, 2002-02-05, 3.5833333333333335, , 0, false
+Hans, 14, true, Junior, competitive, crawl, 2002-02-05, 2.9833333333333334, , 0, false
+Tobais, 17, true, Junior, competitive, crawl, 2002-02-05, 4.283333333333333, , 0, false
+Lukas, 14, true, Junior, competitive, crawl, 2002-02-05, 3.5833333333333335, , 0, false
+Magnus, 26, true, Senior, competitive, crawl, 2002-02-05, 5.683333333333334, , 0, false
+Geo, 27, true, Senior, competitive, crawl, 2002-02-05, 2.7833333333333337, , 0, false
+Lars, 13, true, Junior, competitive, crawl, 2002-02-05, 4.383333333333334, , 0, false
+Mikkel, 16, true, Junior, competitive, crawl, 2002-02-05, 5.283333333333333, , 0, false
+Mohammed, 25, true, Senior, competitive, back crawl, 2002-02-05, 2.9833333333333334, , 0, false
+Christan, 17, true, Junior, competitive, back crawl, 2002-02-05, 4.783333333333333, , 0, false
+Lohmann, 16, true, Junior, competitive, back crawl, 2002-02-05, 5.583333333333334, , 0, false
+Oliver, 15, true, Junior, competitive, back crawl, 2002-02-05, 3.8833333333333333, , 0, false
+Kevin, 23, true, Senior, competitive, back crawl, 2002-02-05, 3.6833333333333336, , 0, false
+alfred, 25, true, Senior, competitive, back crawl, 2002-02-05, 2.7833333333333337, , 0, false
+clive, 26, true, Senior, competitive, back crawl, 2002-02-05, 2.4833333333333334, , 0, false
+chef, 27, true, Senior, competitive, back crawl, 2002-02-05, 4.383333333333334, , 0, false
+abdul, 16, true, Junior, competitive, back crawl, 2002-02-05, 5.383333333333334, , 0, false
+Korn, 15, true, Junior, competitive, back crawl, 2002-02-05, 6.383333333333334, , 0, false
+Kløver, 17, true, Junior, competitive, butterfly, 2002-02-05, 7.183333333333334, , 0, false
+Hummel, 15, true, Junior, competitive, butterfly, 2002-02-05, 4.483333333333333, , 0, false
+Nike, 16, true, Junior, competitive, butterfly, 2002-02-05, 5.683333333333334, , 0, false
+Jordan, 14, true, Junior, competitive, butterfly, 2002-02-05, 8.383333333333333, , 0, false
+Shaq, 15, true, Junior, competitive, butterfly, 2002-02-05, 2.9833333333333334, , 0, false
+Shrek, 20, true, Senior, competitive, butterfly, 2002-02-05, 6.383333333333334, , 0, false
+Malvin, 22, true, Senior, competitive, butterfly, 2002-02-05, 4.583333333333334, , 0, false
+Alvin, 21, true, Senior, competitive, butterfly, 2002-02-05, 5.283333333333333, , 0, false
+Ian, 25, true, Senior, competitive, butterfly, 2002-02-05, 2.8833333333333333, , 0, false
+Kent, 24, true, Senior, competitive, butterfly, 2002-02-05, 3.9833333333333334, , 0, false
+Mikeal, 26, true, Senior, competitive, breaststroke, 2002-02-05, 5.483333333333333, , 0, false
+Niklas, 24, true, Senior, competitive, breaststroke, 2002-02-05, 6.383333333333334, , 0, false
+Mathias, 23, true, Senior, competitive, breaststroke, 2002-02-05, 4.583333333333334, , 0, false
+Ole, 21, true, Senior, competitive, breaststroke, 2002-02-05, 5.383333333333334, , 0, false
+Hassan, 22, true, Senior, competitive, breaststroke, 2002-02-05, 3.3833333333333333, , 0, false
+Ludvig, 14, true, Junior, competitive, breaststroke, 2002-02-05, 4.283333333333333, , 0, false
+Kay, 15, true, Junior, competitive, breaststroke, 2002-02-05, 4.983333333333333, , 0, false
+John, 16, true, Junior, competitive, breaststroke, 2002-02-05, 3.2833333333333337, , 0, false
+Wick, 17, true, Junior, competitive, breaststroke, 2002-02-05, 4.883333333333334, , 0, false
+Pedro, 14, true, Junior, competitive, breaststroke, 2002-02-05, 5.983333333333333, , 0, false

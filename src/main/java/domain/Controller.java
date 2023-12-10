@@ -50,19 +50,19 @@ public class Controller {
         database.updatePaymentStatus(memberName, newPaymentStatus);
     }
 
-    public void printTop5Crawl() {
-        database.printTop5Crawl();
+    public void printTop5ByCrawl() {
+        database.printTop5ByCrawl();
     }
 
-    public void printTop5BackCrawl() {
-        database.printTop5BackCrawl();
+    public void printTop5ByBackCrawl() {
+        database.printTop5ByBackCrawl();
     }
 
-    public void printTop5Butterfly() {
-        database.printTop5Buttefly();
+    public void printTop5byButterfly() {
+        database.printTop5byButterfly();
     }
 
-    public void printTop5Breaststroke() {
-        database.printTop5Breaststroke();
+    public void printTop5ByBreaststroke() {
+        database.printTop5ByBreaststroke();
     }
 }

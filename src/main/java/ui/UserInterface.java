@@ -183,23 +183,17 @@ public class UserInterface {
                     System.out.print("Input the member's name: ");
                     String memberNameToUpdate = scanner.nextLine();
 
-                    boolean isValidStatus = false;
-                    boolean newPaymentStatus = false;
+                    System.out.print("Input if they have paid ('Paid' or 'Not paid'): ");
+                    String newPaymentStatusString = scanner.nextLine().trim().toLowerCase();
 
-                    while (!isValidStatus) {
-                        System.out.print("Input if they have paid ('Paid' or 'Not paid'): ");
-                        String newPaymentStatusString = scanner.nextLine().trim().toLowerCase();
+                    boolean isValidStatus = newPaymentStatusString.equals("paid") || newPaymentStatusString.equals("not paid");
 
-                        isValidStatus = newPaymentStatusString.equals("paid") || newPaymentStatusString.equals("not paid");
-
-                        if (isValidStatus) {
-                            newPaymentStatus = newPaymentStatusString.equals("paid");
-                        } else {
-                            System.out.println(color.ANSI_RED + "Invalid input. Please enter 'Paid' or 'Not paid'." + color.ANSI_RESET);
-                        }
+                    if (isValidStatus) {
+                        boolean newPaymentStatus = newPaymentStatusString.equals("paid");
+                        controller.updatePaymentStatus(memberNameToUpdate, newPaymentStatus);
+                    } else {
+                        System.out.println(color.ANSI_RED + "Invalid input. Payment status remains unchanged." + color.ANSI_RESET);
                     }
-
-                    controller.updatePaymentStatus(memberNameToUpdate, newPaymentStatus);
 
                     System.out.println("\u2500".repeat(50) + " ");
                 }
@@ -214,21 +208,20 @@ public class UserInterface {
                                     "(4) Breaststroke\n" +
                                     "\u2500".repeat(50));
 
-                    // Use a different variable for the nested switch
                     String disciplineCommand = scanner.nextLine().trim().toLowerCase();
 
                     switch (disciplineCommand) {
                         case "1", "one" -> {
-                            controller.printTop5Crawl();
+                            controller.printTop5ByCrawl();
                         }
                         case "2", "two" -> {
-                            controller.printTop5BackCrawl();
+                            controller.printTop5ByBackCrawl();
                         }
                         case "3", "three" -> {
-                            controller.printTop5Butterfly();
+                            controller.printTop5byButterfly();
                         }
                         case "4", "four" -> {
-                            controller.printTop5Breaststroke();
+                            controller.printTop5ByBreaststroke();
                         }
                         default -> {
                             System.out.println(color.ANSI_RED + "Wrong input, try again." + color.ANSI_RESET);

@@ -184,34 +184,34 @@ public class Database {
     public ArrayList<SwimmingClubMember> sortByTimeCrawl() {
         ArrayList<SwimmingClubMember> competitiveMembersCrawl = new ArrayList<>();
         for (SwimmingClubMember member : members) {
-            if (member.getExerciseType().equals("competitive")) {
-                if (member.getActiveDiscipline().equals("crawl")) {
-                    competitiveMembersCrawl.add(member);
-                }
+            if (member.getExerciseType().equals("competitive") && member.getActiveDiscipline().equals("crawl")) {
+                competitiveMembersCrawl.add(member);
             }
         }
-        Collections.sort(competitiveMembersCrawl, Comparator.comparingDouble(SwimmingClubMember::getSwimmingResult));
+
+
+        ArrayList<SwimmingClubMember> juniorMembers = new ArrayList<>();
+        ArrayList<SwimmingClubMember> seniorMembers = new ArrayList<>();
+
+        for (SwimmingClubMember member : competitiveMembersCrawl) {
+            if (member.getAge() < 18) {
+                juniorMembers.add(member);
+            } else {
+                seniorMembers.add(member);
+            }
+        }
+
+
+        Collections.sort(juniorMembers, Comparator.comparingDouble(SwimmingClubMember::getSwimmingResult));
+        Collections.sort(seniorMembers, Comparator.comparingDouble(SwimmingClubMember::getSwimmingResult));
 
         topFiveTimeCrawl.clear();
+        addTopMembers(topFiveTimeCrawl, juniorMembers);
+        addTopMembers(topFiveTimeCrawl, seniorMembers);
 
-        int numMembers = Math.min(5, competitiveMembersCrawl.size());
-        for (int i = 0; i < numMembers; i++) {
-            topFiveTimeCrawl.add(competitiveMembersCrawl.get(i));
-        }
         return topFiveTimeCrawl;
-
     }
 
-    public void printTop5Crawl() {
-        sortByTimeCrawl();
-            if (!topFiveTimeCrawl.isEmpty()) {
-                for (SwimmingClubMember member : topFiveTimeCrawl) {
-                    System.out.println(member + " tid: " + color.ANSI_GREEN +member.getSwimmingResult() + color.ANSI_RESET);
-                }
-            } else {
-                System.out.println(color.ANSI_RED + "There are not enough members in the system yet. \nPress 1 to add a member." + color.ANSI_RESET);
-            }
-        }
 
     public ArrayList<SwimmingClubMember> sortByTimeBackCrawl() {
         ArrayList<SwimmingClubMember> competitiveMembersBackCrawl = new ArrayList<>();
@@ -221,26 +221,29 @@ public class Database {
             }
         }
 
-        Collections.sort(competitiveMembersBackCrawl, Comparator.comparingDouble(SwimmingClubMember::getSwimmingResult));
-        topFiveTimeBackCrawl.clear();
 
-        int numMembers = Math.min(5, competitiveMembersBackCrawl.size());
-        for (int i = 0; i < numMembers; i++) {
-            topFiveTimeBackCrawl.add(competitiveMembersBackCrawl.get(i));
+        ArrayList<SwimmingClubMember> juniorMembers = new ArrayList<>();
+        ArrayList<SwimmingClubMember> seniorMembers = new ArrayList<>();
+
+        for (SwimmingClubMember member : competitiveMembersBackCrawl) {
+            if (member.getAge() < 18) {
+                juniorMembers.add(member);
+            } else {
+                seniorMembers.add(member);
+            }
         }
+
+
+        Collections.sort(juniorMembers, Comparator.comparingDouble(SwimmingClubMember::getSwimmingResult));
+        Collections.sort(seniorMembers, Comparator.comparingDouble(SwimmingClubMember::getSwimmingResult));
+
+        topFiveTimeBackCrawl.clear();
+        addTopMembers(topFiveTimeBackCrawl, juniorMembers);
+        addTopMembers(topFiveTimeBackCrawl, seniorMembers);
+
         return topFiveTimeBackCrawl;
     }
 
-    public void printTop5BackCrawl() {
-        sortByTimeBackCrawl();
-        if (!topFiveTimeBackCrawl.isEmpty()) {
-            for (SwimmingClubMember member : topFiveTimeBackCrawl) {
-                System.out.println(member + " tid: " + color.ANSI_GREEN +member.getSwimmingResult() + color.ANSI_RESET);
-            }
-        } else {
-            System.out.println(color.ANSI_RED + "There are not enough members in the system yet. \nPress 1 to add a member." + color.ANSI_RESET);
-        }
-    }
 
 
     public ArrayList<SwimmingClubMember> sortByTimeButterfly() {
@@ -251,27 +254,28 @@ public class Database {
             }
         }
 
-        Collections.sort(competitiveMembersButterfly, Comparator.comparingDouble(SwimmingClubMember::getSwimmingResult));
+        ArrayList<SwimmingClubMember> juniorMembers = new ArrayList<>();
+        ArrayList<SwimmingClubMember> seniorMembers = new ArrayList<>();
+
+        for (SwimmingClubMember member : competitiveMembersButterfly) {
+            if (member.getAge() < 18) {
+                juniorMembers.add(member);
+            } else {
+                seniorMembers.add(member);
+            }
+        }
+
+
+        Collections.sort(juniorMembers, Comparator.comparingDouble(SwimmingClubMember::getSwimmingResult));
+        Collections.sort(seniorMembers, Comparator.comparingDouble(SwimmingClubMember::getSwimmingResult));
 
         topFiveTimeButterfly.clear();
+        addTopMembers(topFiveTimeButterfly, juniorMembers);
+        addTopMembers(topFiveTimeButterfly, seniorMembers);
 
-        int numMembers = Math.min(5, competitiveMembersButterfly.size());
-        for (int i = 0; i < numMembers; i++) {
-            topFiveTimeButterfly.add(competitiveMembersButterfly.get(i));
-        }
         return topFiveTimeButterfly;
     }
-    public void printTop5Buttefly() {
-        sortByTimeButterfly();
-        if (!topFiveTimeButterfly.isEmpty()) {
-            for (SwimmingClubMember member : topFiveTimeButterfly) {
-                System.out.println(member + " tid: " + color.ANSI_GREEN + member.getSwimmingResult() + color.ANSI_RESET);
-            }
-        } else {
-            System.out.println(color.ANSI_RED + "There are not enough members in the system yet. \nPress 1 to add a member." + color.ANSI_RESET);
-        }
 
-    }
     public ArrayList<SwimmingClubMember> sortByTimeBreaststroke() {
         ArrayList<SwimmingClubMember> competitiveMembersBreaststroke = new ArrayList<>();
         for (SwimmingClubMember member : members) {
@@ -280,33 +284,144 @@ public class Database {
             }
         }
 
-        Collections.sort(competitiveMembersBreaststroke, Comparator.comparingDouble(SwimmingClubMember::getSwimmingResult));
+        // Separate Junior and Senior members
+        ArrayList<SwimmingClubMember> juniorMembers = new ArrayList<>();
+        ArrayList<SwimmingClubMember> seniorMembers = new ArrayList<>();
 
+        for (SwimmingClubMember member : competitiveMembersBreaststroke) {
+            if (member.getAge() < 18) {
+                juniorMembers.add(member);
+            } else {
+                seniorMembers.add(member);
+            }
+        }
+
+
+        Collections.sort(juniorMembers, Comparator.comparingDouble(SwimmingClubMember::getSwimmingResult));
+        Collections.sort(seniorMembers, Comparator.comparingDouble(SwimmingClubMember::getSwimmingResult));
 
         topFiveTimeBreaststroke.clear();
+        addTopMembers(topFiveTimeBreaststroke, juniorMembers);
+        addTopMembers(topFiveTimeBreaststroke, seniorMembers);
 
-        int numMembers = Math.min(5, competitiveMembersBreaststroke.size());
-        for (int i = 0; i < numMembers; i++) {
-            topFiveTimeBreaststroke.add(competitiveMembersBreaststroke.get(i));
-        }
         return topFiveTimeBreaststroke;
     }
-    public void printTop5Breaststroke() {
-        sortByTimeBreaststroke();
-        if (!topFiveTimeBreaststroke.isEmpty()) {
-            for (SwimmingClubMember member : topFiveTimeBreaststroke) {
-                System.out.println(member + " tid: " + color.ANSI_GREEN +member.getSwimmingResult() + color.ANSI_RESET);
-            }
-        } else {
-            System.out.println(color.ANSI_RED + "There are not enough members in the system yet. \nPress 1 to add a member." + color.ANSI_RESET);
+    private void addTopMembers(ArrayList<SwimmingClubMember> topMembers, ArrayList<SwimmingClubMember> sourceMembers) {
+        int numMembers = Math.min(5, sourceMembers.size());
+        for (int i = 0; i < numMembers; i++) {
+            topMembers.add(sourceMembers.get(i));
         }
+    }
 
-
+    public void printTop5ByCrawl() {
+        sortByTimeCrawl();
+        printTop5ByCategoryCrawl("Junior", topFiveTimeCrawl);
+        printTop5ByCategoryCrawl("Senior", topFiveTimeCrawl);
 
     }
 
+    public void printTop5ByBackCrawl() {
+        sortByTimeBackCrawl();
+        printTop5ByCategoryBackCrawl("Junior", topFiveTimeBackCrawl);
+        printTop5ByCategoryBackCrawl("Senior", topFiveTimeBackCrawl);
+    }
+
+    public void printTop5byButterfly() {
+        sortByTimeButterfly();
+        printTop5ByCategoryButterfly("Junior", topFiveTimeButterfly);
+        printTop5ByCategoryButterfly("Senior", topFiveTimeButterfly);
+    }
+
+    public void printTop5ByBreaststroke(){
+        sortByTimeBreaststroke();
+        printTop5ByCategoryBreaststroke("Junior", topFiveTimeBreaststroke);
+        printTop5ByCategoryBreaststroke("Senior", topFiveTimeBreaststroke);
+    }
 
 
+    private void printTop5ByCategoryCrawl(String category, ArrayList<SwimmingClubMember> topFiveMembers) {
+        System.out.println("Top 5 " + category + " Swimmers - Crawl:");
 
+
+        ArrayList<SwimmingClubMember> topFiveInCategoryCrawl = new ArrayList<>();
+        for (SwimmingClubMember member : topFiveMembers) {
+            if (member.getAgeGroup().equalsIgnoreCase(category)) {
+                topFiveInCategoryCrawl.add(member);
+            }
+        }
+
+        if (!topFiveInCategoryCrawl.isEmpty()) {
+            int numMembers = Math.min(5, topFiveInCategoryCrawl.size());
+            for (int i = 0; i < numMembers; i++) {
+                SwimmingClubMember member = topFiveInCategoryCrawl.get(i);
+                System.out.println(member + " tid: " + color.ANSI_GREEN + member.getSwimmingResult() + color.ANSI_RESET);
+            }
+        } else {
+            System.out.println(color.ANSI_RED + "There are not enough members in the " + category + " category. \nPress 1 to add a member." + color.ANSI_RESET);
+        }
+    }
+    private void printTop5ByCategoryBackCrawl(String category, ArrayList<SwimmingClubMember> topFiveMembers) {
+        System.out.println("Top 5 " + category + " Swimmers - Back Crawl:");
+
+
+        ArrayList<SwimmingClubMember> topFiveInCategoryBackCrawl = new ArrayList<>();
+        for (SwimmingClubMember member : topFiveMembers) {
+            if (member.getAgeGroup().equalsIgnoreCase(category)) {
+                topFiveInCategoryBackCrawl.add(member);
+            }
+        }
+
+        if (!topFiveInCategoryBackCrawl.isEmpty()) {
+            int numMembers = Math.min(5, topFiveInCategoryBackCrawl.size());
+            for (int i = 0; i < numMembers; i++) {
+                SwimmingClubMember member = topFiveInCategoryBackCrawl.get(i);
+                System.out.println(member + " tid: " + color.ANSI_GREEN + member.getSwimmingResult() + color.ANSI_RESET);
+            }
+        } else {
+            System.out.println(color.ANSI_RED + "There are not enough members in the " + category + " category. \nPress 1 to add a member." + color.ANSI_RESET);
+        }
+    }
+    private void printTop5ByCategoryButterfly(String category, ArrayList<SwimmingClubMember> topFiveMembers) {
+        System.out.println("Top 5 " + category + " Swimmers - Butterfly:");
+
+
+        ArrayList<SwimmingClubMember> topFiveInCategoryButterfly = new ArrayList<>();
+        for (SwimmingClubMember member : topFiveMembers) {
+            if (member.getAgeGroup().equalsIgnoreCase(category)) {
+                topFiveInCategoryButterfly.add(member);
+            }
+        }
+
+        if (!topFiveInCategoryButterfly.isEmpty()) {
+            int numMembers = Math.min(5, topFiveInCategoryButterfly.size());
+            for (int i = 0; i < numMembers; i++) {
+                SwimmingClubMember member = topFiveInCategoryButterfly.get(i);
+                System.out.println(member + " tid: " + color.ANSI_GREEN + member.getSwimmingResult() + color.ANSI_RESET);
+            }
+        } else {
+            System.out.println(color.ANSI_RED + "There are not enough members in the " + category + " category. \nPress 1 to add a member." + color.ANSI_RESET);
+        }
+    }
+    private void printTop5ByCategoryBreaststroke(String category, ArrayList<SwimmingClubMember> topFiveMembers) {
+        System.out.println("Top 5 " + category + " Swimmers - Breaststroke:");
+
+
+        ArrayList<SwimmingClubMember> topFiveInCategoryBreaststroke = new ArrayList<>();
+        for (SwimmingClubMember member : topFiveMembers) {
+            if (member.getAgeGroup().equalsIgnoreCase(category)) {
+                topFiveInCategoryBreaststroke.add(member);
+            }
+        }
+
+        if (!topFiveInCategoryBreaststroke.isEmpty()) {
+            int numMembers = Math.min(5, topFiveInCategoryBreaststroke.size());
+            for (int i = 0; i < numMembers; i++) {
+                SwimmingClubMember member = topFiveInCategoryBreaststroke.get(i);
+                System.out.println(member + " tid: " + color.ANSI_GREEN + member.getSwimmingResult() + color.ANSI_RESET);
+            }
+        } else {
+            System.out.println(color.ANSI_RED + "There are not enough members in the " + category + " category. \nPress 1 to add a member." + color.ANSI_RESET);
+        }
+    }
 
 }
