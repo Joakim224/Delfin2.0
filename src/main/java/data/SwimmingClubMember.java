@@ -106,18 +106,24 @@ public class SwimmingClubMember {
         return subscriptionActive;
     }
 
-
-
     public String toString() {
-        return "Member: " + name +
-                ", age: " + age +
-                ", active subscription: " + subscriptionActive +
-                ", age group: " + ageGroup +
-                ", exercise type: " + exerciseType +
-                ", active discipline: " + activeDiscipline +
-                ", Paid: " + paymentStatus;
+        if (!activeDiscipline.isEmpty()) {
+            return "Member: " + name +
+                    ", age: " + age +
+                    ", active subscription: " + subscriptionActive +
+                    ", age group: " + ageGroup +
+                    ", exercise type: " + exerciseType +
+                    ", active discipline: " + activeDiscipline +
+                    ", paid: " + paymentStatus;
+        } else {
+            return "Member: " + name +
+                    ", age: " + age +
+                    ", active subscription: " + subscriptionActive +
+                    ", age group: " + ageGroup +
+                    ", exercise type: " + exerciseType +
+                    ", paid: " + paymentStatus;
+        }
     }
-
 
     public void setSwimmingDate(String swimmingDate) {
         this.swimmingDate=swimmingDate;

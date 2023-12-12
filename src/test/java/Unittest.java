@@ -14,7 +14,6 @@ public class Unittest {
     public void testAddMember() {
         Database database = new Database();
         database.addMember("John", 25, true, "Senior", "Regular", "Crawl", true);
-
         assertEquals(1, database.getMembers().size());
     }
 
@@ -51,8 +50,8 @@ public class Unittest {
         Controller c = new Controller();
 
         // Tilføjer 2 test members
-        c.addMember("Test1", 15, true, "Junior", "Regular", "Crawl", true);
-        c.addMember("Test2", 30, true, "Senior", "Competitive", "Butterfly", true);
+        c.addMember("Test1", 15, true, "Junior", "Competitive", "Crawl", false);
+        c.addMember("Test2", 30, true, "Senior", "Competitive", "Butterfly", false);
 
         // Kalder printMembers metoden og samler det printede information op i printStream
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -61,9 +60,9 @@ public class Unittest {
 
         // Definere forventet output fra test members
         String expectedOutput =
-                "Member: Test1, age: 15, active subscription: true, age group: Junior, exercise type: Regular, active discipline: Crawl" +
+                "Member: Test1, age: 15, active subscription: true, age group: Junior, exercise type: Competitive, active discipline: Crawl, paid: false" +
                 System.lineSeparator() +
-                "Member: Test2, age: 30, active subscription: true, age group: Senior, exercise type: Competitive, active discipline: Butterfly";
+                "Member: Test2, age: 30, active subscription: true, age group: Senior, exercise type: Competitive, active discipline: Butterfly, paid: false";
 
         // Asserter at forventede og printede output er det samme
         assertEquals(expectedOutput, outContent.toString().trim());
