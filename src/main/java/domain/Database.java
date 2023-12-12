@@ -216,8 +216,10 @@ public class Database {
     public ArrayList<SwimmingClubMember> sortByTimeBackCrawl() {
         ArrayList<SwimmingClubMember> competitiveMembersBackCrawl = new ArrayList<>();
         for (SwimmingClubMember member : members) {
-            if (member.getExerciseType().equals("competitive") && member.getActiveDiscipline().equals("back crawl")) {
-                competitiveMembersBackCrawl.add(member);
+            if (member.getExerciseType().equals("competitive")) {
+                    if (member.getActiveDiscipline().equals("back crawl")) {
+                        competitiveMembersBackCrawl.add(member);
+                    }
             }
         }
 
@@ -284,7 +286,6 @@ public class Database {
             }
         }
 
-        // Separate Junior and Senior members
         ArrayList<SwimmingClubMember> juniorMembers = new ArrayList<>();
         ArrayList<SwimmingClubMember> seniorMembers = new ArrayList<>();
 
